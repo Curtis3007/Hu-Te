@@ -41,6 +41,15 @@
 		72F5BA232656000600144253 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA222656000600144253 /* InputView.swift */; };
 		72F5BA262656001200144253 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F5BA252656001200144253 /* InputView.xib */; };
 		F16E2696D081F7EB2899EB04 /* Pods_Hu_Te.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C1FA4F6DE541818B18AB4 /* Pods_Hu_Te.framework */; };
+		84DFE7E12656446000E97117 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE7DF2656446000E97117 /* SettingViewController.swift */; };
+		84DFE7E22656446000E97117 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFE7E02656446000E97117 /* SettingViewController.xib */; };
+		84DFE7E42656449900E97117 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE7E32656449900E97117 /* SettingPresenter.swift */; };
+		84DFE7E92656470800E97117 /* LimitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE7E72656470800E97117 /* LimitationCell.swift */; };
+		84DFE7EA2656470800E97117 /* LimitationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFE7E82656470800E97117 /* LimitationCell.xib */; };
+		84DFE81926564D6100E97117 /* NormalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE81826564D6100E97117 /* NormalHeaderView.swift */; };
+		84DFE81C26564DF600E97117 /* NormalHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFE81B26564DF600E97117 /* NormalHeaderView.xib */; };
+		84DFE8212656559000E97117 /* SpeakerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DFE81F2656559000E97117 /* SpeakerCell.swift */; };
+		84DFE8222656559000E97117 /* SpeakerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFE8202656559000E97117 /* SpeakerCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +91,15 @@
 		72F5BA252656001200144253 /* InputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
 		C22C1FA4F6DE541818B18AB4 /* Pods_Hu_Te.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hu_Te.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26DC471F5DF7326C780CA90 /* Pods-Hu&Te.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hu&Te.release.xcconfig"; path = "Target Support Files/Pods-Hu&Te/Pods-Hu&Te.release.xcconfig"; sourceTree = "<group>"; };
+		84DFE7DF2656446000E97117 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		84DFE7E02656446000E97117 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		84DFE7E32656449900E97117 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
+		84DFE7E72656470800E97117 /* LimitationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitationCell.swift; sourceTree = "<group>"; };
+		84DFE7E82656470800E97117 /* LimitationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LimitationCell.xib; sourceTree = "<group>"; };
+		84DFE81826564D6100E97117 /* NormalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalHeaderView.swift; sourceTree = "<group>"; };
+		84DFE81B26564DF600E97117 /* NormalHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalHeaderView.xib; sourceTree = "<group>"; };
+		84DFE81F2656559000E97117 /* SpeakerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerCell.swift; sourceTree = "<group>"; };
+		84DFE8202656559000E97117 /* SpeakerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +162,7 @@
 		72F5B9D92655F89300144253 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				84DFE7DE2656443200E97117 /* Setting */,
 				72F5B9F32655F9E100144253 /* Profile */,
 				72F5B9EB2655F9C000144253 /* Home */,
 				72F5B9DA2655F8EC00144253 /* Authen */,
@@ -283,6 +302,44 @@
 				C22C1FA4F6DE541818B18AB4 /* Pods_Hu_Te.framework */,
 			);
 			name = Frameworks;
+		84DFE7DE2656443200E97117 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				84DFE81E2656556C00E97117 /* SpeakerCell */,
+				84DFE81726564CDA00E97117 /* HeaderCell */,
+				84DFE7E6265646CB00E97117 /* LimitationCell */,
+				84DFE7DF2656446000E97117 /* SettingViewController.swift */,
+				84DFE7E02656446000E97117 /* SettingViewController.xib */,
+				84DFE7E32656449900E97117 /* SettingPresenter.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		84DFE7E6265646CB00E97117 /* LimitationCell */ = {
+			isa = PBXGroup;
+			children = (
+				84DFE7E72656470800E97117 /* LimitationCell.swift */,
+				84DFE7E82656470800E97117 /* LimitationCell.xib */,
+			);
+			path = LimitationCell;
+			sourceTree = "<group>";
+		};
+		84DFE81726564CDA00E97117 /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				84DFE81826564D6100E97117 /* NormalHeaderView.swift */,
+				84DFE81B26564DF600E97117 /* NormalHeaderView.xib */,
+			);
+			path = HeaderCell;
+			sourceTree = "<group>";
+		};
+		84DFE81E2656556C00E97117 /* SpeakerCell */ = {
+			isa = PBXGroup;
+			children = (
+				84DFE81F2656559000E97117 /* SpeakerCell.swift */,
+				84DFE8202656559000E97117 /* SpeakerCell.xib */,
+			);
+			path = SpeakerCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,8 +407,12 @@
 				72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */,
 				72F5B9F12655F9CF00144253 /* HomeViewController.xib in Resources */,
 				72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */,
+				84DFE8222656559000E97117 /* SpeakerCell.xib in Resources */,
+				84DFE7EA2656470800E97117 /* LimitationCell.xib in Resources */,
 				72F5BA022655FC0F00144253 /* Sarala-Bold.ttf in Resources */,
 				72F5B9CD2655F85600144253 /* Assets.xcassets in Resources */,
+				84DFE81C26564DF600E97117 /* NormalHeaderView.xib in Resources */,
+				84DFE7E22656446000E97117 /* SettingViewController.xib in Resources */,
 				72F5B9E22655F95E00144253 /* RegisterViewController.xib in Resources */,
 				72F5BA202655FFEF00144253 /* NavigationView.xib in Resources */,
 				72F5BA262656001200144253 /* InputView.xib in Resources */,
@@ -411,7 +472,10 @@
 				72F5B9F72655FA0300144253 /* ProfilePresenter.swift in Sources */,
 				72F5BA142655FD1A00144253 /* BaseViewXib.swift in Sources */,
 				72F5B9E02655F95E00144253 /* RegisterPresenter.swift in Sources */,
+				84DFE7E92656470800E97117 /* LimitationCell.swift in Sources */,
+				84DFE8212656559000E97117 /* SpeakerCell.swift in Sources */,
 				72F5B9C52655F85300144253 /* ViewController.swift in Sources */,
+				84DFE7E12656446000E97117 /* SettingViewController.swift in Sources */,
 				72F5B9E72655F96F00144253 /* LoginPresenter.swift in Sources */,
 				72DE88E62656584800AC25B4 /* ChangePasswordPresenter.swift in Sources */,
 				72F5BA172655FDE000144253 /* BaseViewController.swift in Sources */,
@@ -421,10 +485,12 @@
 				72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */,
 				72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */,
 				72F5B9E82655F96F00144253 /* LoginViewController.swift in Sources */,
+				84DFE81926564D6100E97117 /* NormalHeaderView.swift in Sources */,
 				72F5BA102655FCB700144253 /* UIScreen+extension.swift in Sources */,
 				72F5B9F82655FA0300144253 /* ProfileViewController.swift in Sources */,
 				72F5B9F02655F9CF00144253 /* HomeViewController.swift in Sources */,
 				72F5B9E12655F95E00144253 /* RegisterViewController.swift in Sources */,
+				84DFE7E42656449900E97117 /* SettingPresenter.swift in Sources */,
 				72F5B9EF2655F9CF00144253 /* HomePresenter.swift in Sources */,
 				72F5BA232656000600144253 /* InputView.swift in Sources */,
 				72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */,
@@ -571,6 +637,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H2X5DQZH3;
 				INFOPLIST_FILE = "Hu&Te/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -591,6 +658,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H2X5DQZH3;
 				INFOPLIST_FILE = "Hu&Te/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

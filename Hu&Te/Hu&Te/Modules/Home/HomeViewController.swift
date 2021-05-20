@@ -50,7 +50,7 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     }
     
     @IBAction func onTapSettings(_ sender: Any) {
-        
+        navigationController?.pushViewController(SettingViewController(presenter: SettingPresenter()), animated: true)
     }
     
     @IBAction func onTapHistory(_ sender: Any) {
