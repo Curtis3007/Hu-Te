@@ -12,7 +12,9 @@ import UIKit
 
 class LoginViewController: UIViewController, LoginViewProtocol {
 
-	var presenter: LoginPresenterProtocol
+    @IBOutlet weak var tfEmail: InputView!
+    @IBOutlet weak var tfPassword: InputView!
+    var presenter: LoginPresenterProtocol
 
 	init(presenter: LoginPresenterProtocol) {
         self.presenter = presenter
@@ -33,6 +35,9 @@ class LoginViewController: UIViewController, LoginViewProtocol {
     
     func setupUI(){
         navigationController?.isNavigationBarHidden = true
+        tfEmail.setupData(title: "EMAIL")
+        tfPassword.setupData(title: "PASSWORD")
+        tfPassword.textField.isSecureTextEntry = true
     }
 
     @IBAction func onTapLogin(_ sender: Any) {

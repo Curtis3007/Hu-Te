@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialBottomSheet
 
 class ProfileViewController: UIViewController, ProfileViewProtocol {
 
@@ -44,7 +45,9 @@ class ProfileViewController: UIViewController, ProfileViewProtocol {
     }
 
     @IBAction func onTapChangePassword(_ sender: Any) {
-        
+        let bottomSheet = MDCBottomSheetController(contentViewController: ChangePasswordViewController(presenter: ChangePasswordPresenter()))
+        bottomSheet.preferredContentSize = CGSize(width: UIScreen.screenWidth(), height: UIScreen.screenHeight())
+        self.present(bottomSheet, animated: true, completion: nil)
     }
     
     @IBAction func onTapLogout(_ sender: Any) {

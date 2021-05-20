@@ -40,9 +40,11 @@
 		72F5BA202655FFEF00144253 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F5BA1F2655FFEF00144253 /* NavigationView.xib */; };
 		72F5BA232656000600144253 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA222656000600144253 /* InputView.swift */; };
 		72F5BA262656001200144253 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F5BA252656001200144253 /* InputView.xib */; };
+		F16E2696D081F7EB2899EB04 /* Pods_Hu_Te.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22C1FA4F6DE541818B18AB4 /* Pods_Hu_Te.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hu&Te.debug.xcconfig"; path = "Target Support Files/Pods-Hu&Te/Pods-Hu&Te.debug.xcconfig"; sourceTree = "<group>"; };
 		72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
 		72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
@@ -78,6 +80,8 @@
 		72F5BA1F2655FFEF00144253 /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		72F5BA222656000600144253 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		72F5BA252656001200144253 /* InputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
+		C22C1FA4F6DE541818B18AB4 /* Pods_Hu_Te.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hu_Te.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26DC471F5DF7326C780CA90 /* Pods-Hu&Te.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hu&Te.release.xcconfig"; path = "Target Support Files/Pods-Hu&Te/Pods-Hu&Te.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16E2696D081F7EB2899EB04 /* Pods_Hu_Te.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,8 @@
 			children = (
 				72F5B9BF2655F85300144253 /* Hu&Te */,
 				72F5B9BE2655F85300144253 /* Products */,
+				B5E11B2E294F7C4B56E48F5A /* Pods */,
+				EC38A468D41CD65A079707BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +267,24 @@
 			path = "Text Field";
 			sourceTree = "<group>";
 		};
+		B5E11B2E294F7C4B56E48F5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */,
+				D26DC471F5DF7326C780CA90 /* Pods-Hu&Te.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC38A468D41CD65A079707BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C22C1FA4F6DE541818B18AB4 /* Pods_Hu_Te.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,9 +292,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72F5B9D42655F85600144253 /* Build configuration list for PBXNativeTarget "Hu&Te" */;
 			buildPhases = (
+				D7B899FA5A72C3826CC3AC15 /* [CP] Check Pods Manifest.lock */,
 				72F5B9B92655F85300144253 /* Sources */,
 				72F5B9BA2655F85300144253 /* Frameworks */,
 				72F5B9BB2655F85300144253 /* Resources */,
+				B6059CBE0D9AC298E1D6E9D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -332,6 +359,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B6059CBE0D9AC298E1D6E9D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hu&Te/Pods-Hu&Te-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hu&Te/Pods-Hu&Te-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hu&Te/Pods-Hu&Te-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7B899FA5A72C3826CC3AC15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hu&Te-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72F5B9B92655F85300144253 /* Sources */ = {
@@ -495,6 +564,7 @@
 		};
 		72F5B9D52655F85600144253 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -514,6 +584,7 @@
 		};
 		72F5B9D62655F85600144253 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D26DC471F5DF7326C780CA90 /* Pods-Hu&Te.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

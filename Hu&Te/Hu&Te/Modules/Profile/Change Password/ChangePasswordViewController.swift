@@ -12,9 +12,12 @@ import UIKit
 
 class ChangePasswordViewController: UIViewController, ChangePasswordViewProtocol {
 
-	var presenter: ChangePasswordPresenterProtocol
-
-	init(presenter: ChangePasswordPresenterProtocol) {
+    var presenter: ChangePasswordPresenterProtocol
+    @IBOutlet weak var tfCurentPassword: InputView!
+    @IBOutlet weak var tfNewPassword: InputView!
+    @IBOutlet weak var tfConfirmPassword: InputView!
+    
+    init(presenter: ChangePasswordPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: "ChangePasswordViewController", bundle: nil)
     }
@@ -25,9 +28,20 @@ class ChangePasswordViewController: UIViewController, ChangePasswordViewProtocol
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter.view = self
-        presenter.viewDidLoad()
+        setupUI()
     }
-
+    
+    func setupUI(){
+        tfCurentPassword.setupData(title: "Current Password")
+        tfNewPassword.setupData(title: "New Password")
+        tfConfirmPassword.setupData(title: "Confirm Password")
+    }
+    
+    @IBAction func onTapDismiss(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onTapSubmit(_ sender: Any) {
+    }
 }

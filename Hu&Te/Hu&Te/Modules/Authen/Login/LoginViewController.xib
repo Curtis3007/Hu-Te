@@ -14,6 +14,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Hu_Te" customModuleProvider="target">
             <connections>
+                <outlet property="tfEmail" destination="CDw-wi-E8x" id="1zN-Fd-nem"/>
+                <outlet property="tfPassword" destination="jdv-Cs-eGc" id="Pou-O0-9ac"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +31,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="934"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_water" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-ZB-paw">
-                                    <rect key="frame" x="40" y="785" width="83" height="106"/>
+                                    <rect key="frame" x="40" y="764" width="83" height="106"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="83" id="M6n-ga-9Sq"/>
                                         <constraint firstAttribute="height" constant="106" id="u75-pz-e8B"/>
@@ -158,7 +160,7 @@
                                 <constraint firstItem="Jh3-fx-89m" firstAttribute="centerY" secondItem="ynT-x0-Q2Z" secondAttribute="centerY" id="7jw-h6-bfl"/>
                                 <constraint firstAttribute="trailing" secondItem="ynT-x0-Q2Z" secondAttribute="trailing" constant="50" id="81b-sT-mZu"/>
                                 <constraint firstItem="lbl-ZB-paw" firstAttribute="leading" secondItem="AhG-f6-RAX" secondAttribute="leading" constant="40" id="9zd-c5-Hyc"/>
-                                <constraint firstAttribute="bottom" secondItem="lbl-ZB-paw" secondAttribute="bottom" constant="43" id="Cq0-JJ-18I"/>
+                                <constraint firstAttribute="bottom" secondItem="lbl-ZB-paw" secondAttribute="bottom" constant="64" id="Cq0-JJ-18I"/>
                                 <constraint firstAttribute="trailing" secondItem="CDw-wi-E8x" secondAttribute="trailing" constant="30" id="Egb-rD-Knd"/>
                                 <constraint firstItem="Jh3-fx-89m" firstAttribute="height" secondItem="ynT-x0-Q2Z" secondAttribute="height" id="Fp6-Cd-T2i"/>
                                 <constraint firstItem="biH-GD-shC" firstAttribute="width" secondItem="YhI-TS-2Rc" secondAttribute="width" id="Qfa-no-jtD"/>
