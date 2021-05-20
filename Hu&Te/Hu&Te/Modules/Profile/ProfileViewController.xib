@@ -6,23 +6,127 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Sarala-Bold.ttf">
+            <string>Sarala-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Hu_Te" customModuleProvider="target">
             <connections>
+                <outlet property="tfEmail" destination="Wm0-6s-yc8" id="YtC-Td-tvD"/>
+                <outlet property="tfName" destination="e1t-zM-YpN" id="4bv-UY-DF3"/>
+                <outlet property="tfPhone" destination="190-Ts-olI" id="7x6-Cf-sIq"/>
+                <outlet property="vNavigation" destination="HuZ-N6-Quu" id="UHR-8R-N6j"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="838"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kvj-u7-9XU">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvj-u7-9XU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="838"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-ba-XBq">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="838"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jq0-GV-lxT">
+                                    <rect key="frame" x="165" y="160" width="45" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="10"/>
+                                    <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="0.25" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Curtis" textAlignment="center" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-zM-YpN">
+                                    <rect key="frame" x="153" y="178.5" width="69" height="41"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="24"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_profile" translatesAutoresizingMaskIntoConstraints="NO" id="a59-2W-oUu">
+                                    <rect key="frame" x="112.5" y="237.5" width="150" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="637-a8-fsa"/>
+                                        <constraint firstAttribute="height" constant="150" id="V57-sW-Nji"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yJ-OF-w4n">
+                                    <rect key="frame" x="66" y="405.5" width="27.5" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="10"/>
+                                    <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="curtis@gmail.com" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Wm0-6s-yc8">
+                                    <rect key="frame" x="66" y="422" width="158" height="31"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM2-NL-3UJ">
+                                    <rect key="frame" x="66" y="467" width="31" height="17"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="10"/>
+                                    <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0856856034" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="190-Ts-olI">
+                                    <rect key="frame" x="66" y="484" width="108" height="31"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHANGE PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpg-7X-zg4">
+                                    <rect key="frame" x="119" y="697" width="137" height="23"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="14"/>
+                                    <color key="textColor" red="0.094117647060000004" green="0.68627450980000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIy-b8-XbY">
+                                    <rect key="frame" x="119" y="693.5" width="137" height="30"/>
+                                    <connections>
+                                        <action selector="onTapChangePassword:" destination="-1" eventType="touchUpInside" id="jnH-lk-6PX"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogh-gJ-yVK">
+                                    <rect key="frame" x="159.5" y="741" width="56" height="23"/>
+                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="14"/>
+                                    <color key="textColor" red="0.9882352941176471" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukZ-GV-d1D">
+                                    <rect key="frame" x="131.5" y="737.5" width="112" height="30"/>
+                                    <connections>
+                                        <action selector="onTapLogout:" destination="-1" eventType="touchUpInside" id="LAM-9x-tVq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="rIy-b8-XbY" firstAttribute="centerY" secondItem="Zpg-7X-zg4" secondAttribute="centerY" id="1mj-Vm-pJq"/>
+                                <constraint firstItem="a59-2W-oUu" firstAttribute="top" secondItem="e1t-zM-YpN" secondAttribute="bottom" constant="18" id="54W-LY-h0H"/>
+                                <constraint firstItem="7yJ-OF-w4n" firstAttribute="top" secondItem="a59-2W-oUu" secondAttribute="bottom" constant="18" id="5qx-i2-yld"/>
+                                <constraint firstAttribute="bottom" secondItem="ogh-gJ-yVK" secondAttribute="bottom" constant="74" id="6ws-En-0kk"/>
+                                <constraint firstItem="Wm0-6s-yc8" firstAttribute="leading" secondItem="X5U-ba-XBq" secondAttribute="leading" constant="66" id="77l-vh-fG5"/>
+                                <constraint firstItem="yM2-NL-3UJ" firstAttribute="top" secondItem="Wm0-6s-yc8" secondAttribute="bottom" constant="14" id="8aP-l7-a6S"/>
+                                <constraint firstItem="yM2-NL-3UJ" firstAttribute="leading" secondItem="X5U-ba-XBq" secondAttribute="leading" constant="66" id="I7f-B6-dzt"/>
+                                <constraint firstItem="rIy-b8-XbY" firstAttribute="width" secondItem="Zpg-7X-zg4" secondAttribute="width" id="KNb-hB-58S"/>
+                                <constraint firstItem="ogh-gJ-yVK" firstAttribute="centerX" secondItem="X5U-ba-XBq" secondAttribute="centerX" id="MiW-JK-V49"/>
+                                <constraint firstItem="Wm0-6s-yc8" firstAttribute="top" secondItem="7yJ-OF-w4n" secondAttribute="bottom" id="NR1-uH-r13"/>
+                                <constraint firstItem="190-Ts-olI" firstAttribute="leading" secondItem="X5U-ba-XBq" secondAttribute="leading" constant="66" id="Ntn-a2-gMB"/>
+                                <constraint firstItem="190-Ts-olI" firstAttribute="top" secondItem="yM2-NL-3UJ" secondAttribute="bottom" id="QH8-ZY-ecN"/>
+                                <constraint firstItem="ukZ-GV-d1D" firstAttribute="centerY" secondItem="ogh-gJ-yVK" secondAttribute="centerY" id="SvY-9P-ixJ"/>
+                                <constraint firstItem="Zpg-7X-zg4" firstAttribute="centerX" secondItem="X5U-ba-XBq" secondAttribute="centerX" id="USi-f1-9y6"/>
+                                <constraint firstItem="e1t-zM-YpN" firstAttribute="centerX" secondItem="X5U-ba-XBq" secondAttribute="centerX" id="VDl-Z5-aed"/>
+                                <constraint firstItem="ukZ-GV-d1D" firstAttribute="centerX" secondItem="ogh-gJ-yVK" secondAttribute="centerX" id="ZFl-XQ-vUB"/>
+                                <constraint firstItem="rIy-b8-XbY" firstAttribute="centerX" secondItem="Zpg-7X-zg4" secondAttribute="centerX" id="aba-rC-YwO"/>
+                                <constraint firstItem="ogh-gJ-yVK" firstAttribute="top" secondItem="Zpg-7X-zg4" secondAttribute="bottom" constant="21" id="hSK-CX-7vZ"/>
+                                <constraint firstItem="e1t-zM-YpN" firstAttribute="top" secondItem="jq0-GV-lxT" secondAttribute="bottom" constant="2" id="hdk-Ja-yAo"/>
+                                <constraint firstItem="ukZ-GV-d1D" firstAttribute="width" secondItem="ogh-gJ-yVK" secondAttribute="width" multiplier="2" id="oVG-Im-QHn"/>
+                                <constraint firstItem="a59-2W-oUu" firstAttribute="centerX" secondItem="X5U-ba-XBq" secondAttribute="centerX" id="sYm-sT-aew"/>
+                                <constraint firstItem="7yJ-OF-w4n" firstAttribute="leading" secondItem="X5U-ba-XBq" secondAttribute="leading" constant="66" id="tFV-Be-jUB"/>
+                                <constraint firstItem="jq0-GV-lxT" firstAttribute="centerX" secondItem="X5U-ba-XBq" secondAttribute="centerX" id="vHV-Bv-ATk"/>
+                                <constraint firstItem="jq0-GV-lxT" firstAttribute="top" secondItem="X5U-ba-XBq" secondAttribute="top" constant="160" id="zLQ-Sz-TG5"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <constraints>
@@ -32,10 +136,20 @@
                         <constraint firstItem="X5U-ba-XBq" firstAttribute="top" secondItem="Kvj-u7-9XU" secondAttribute="top" id="kAq-B9-TQI"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuZ-N6-Quu" customClass="NavigationView" customModule="Hu_Te" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="145"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="145" id="kXI-Sr-Xy1"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="X5U-ba-XBq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="06s-So-i5l"/>
+                <constraint firstItem="HuZ-N6-Quu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5iw-Wc-bVy"/>
+                <constraint firstAttribute="trailing" secondItem="HuZ-N6-Quu" secondAttribute="trailing" id="6bv-VM-Umz"/>
+                <constraint firstItem="HuZ-N6-Quu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9MX-3L-zi6"/>
                 <constraint firstItem="Kvj-u7-9XU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DC0-Ut-XDT"/>
                 <constraint firstAttribute="trailing" secondItem="Kvj-u7-9XU" secondAttribute="trailing" id="USn-kP-HrV"/>
                 <constraint firstItem="X5U-ba-XBq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="ise-rN-MYt"/>
@@ -43,10 +157,11 @@
                 <constraint firstAttribute="bottom" secondItem="Kvj-u7-9XU" secondAttribute="bottom" id="ylI-7c-Gf6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-241" y="99"/>
+            <point key="canvasLocation" x="-242.40000000000001" y="175.41229385307346"/>
         </view>
     </objects>
     <resources>
+        <image name="img_profile" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

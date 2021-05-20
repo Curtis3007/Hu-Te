@@ -29,5 +29,12 @@ class RegisterViewController: UIViewController, RegisterViewProtocol {
         presenter.view = self
         presenter.viewDidLoad()
     }
-
+    
+    @IBAction func onTapLogin(_ sender: Any) {
+        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+    }
+    
+    @IBAction func onTapBackLogin(_ sender: Any) {
+        navigationController?.pushViewController(LoginViewController(presenter: LoginPresenter()), animated: true)
+    }
 }
