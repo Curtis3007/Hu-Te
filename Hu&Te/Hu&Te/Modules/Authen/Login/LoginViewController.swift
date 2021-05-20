@@ -28,6 +28,18 @@ class LoginViewController: UIViewController, LoginViewProtocol {
 
         presenter.view = self
         presenter.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI(){
+        navigationController?.isNavigationBarHidden = true
     }
 
+    @IBAction func onTapLogin(_ sender: Any) {
+        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+    }
+    
+    @IBAction func onTapRegister(_ sender: Any) {
+        navigationController?.pushViewController(RegisterViewController(presenter: RegisterPresenter()), animated: true)
+    }
 }

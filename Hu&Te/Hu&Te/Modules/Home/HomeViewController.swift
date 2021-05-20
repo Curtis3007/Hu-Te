@@ -12,7 +12,11 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeViewProtocol {
 
-	var presenter: HomePresenterProtocol
+    @IBOutlet weak var lbSpeaker: UILabel!
+    @IBOutlet weak var lbUser: UILabel!
+    @IBOutlet weak var lbTemp: UILabel!
+    @IBOutlet weak var lbHumid: UILabel!
+    var presenter: HomePresenterProtocol
 
 	init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
@@ -25,9 +29,31 @@ class HomeViewController: UIViewController, HomeViewProtocol {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter.view = self
-        presenter.viewDidLoad()
+        setupUI()
     }
-
+    
+    func setupUI(){
+        lbSpeaker.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+    }
+    
+    @IBAction func onTapPofile(_ sender: Any) {
+        navigationController?.pushViewController(ProfileViewController(presenter: ProfilePresenter()), animated: true)
+    }
+    
+    @IBAction func onTapGraph(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onTapSpeaker(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onTapSettings(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onTapHistory(_ sender: Any) {
+        
+    }
 }

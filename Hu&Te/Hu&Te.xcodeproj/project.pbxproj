@@ -25,6 +25,18 @@
 		72F5B9F72655FA0300144253 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9F42655FA0300144253 /* ProfilePresenter.swift */; };
 		72F5B9F82655FA0300144253 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9F52655FA0300144253 /* ProfileViewController.swift */; };
 		72F5B9F92655FA0300144253 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F5B9F62655FA0300144253 /* ProfileViewController.xib */; };
+		72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72F5B9FF2655FC0F00144253 /* Sarala-Regular.ttf */; };
+		72F5BA022655FC0F00144253 /* Sarala-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72F5BA002655FC0F00144253 /* Sarala-Bold.ttf */; };
+		72F5BA062655FC8300144253 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA052655FC8300144253 /* UIView+extension.swift */; };
+		72F5BA0A2655FC9600144253 /* UITableView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA092655FC9600144253 /* UITableView+extension.swift */; };
+		72F5BA0D2655FCA900144253 /* UICollectionView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA0C2655FCA900144253 /* UICollectionView+extension.swift */; };
+		72F5BA102655FCB700144253 /* UIScreen+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA0F2655FCB700144253 /* UIScreen+extension.swift */; };
+		72F5BA142655FD1A00144253 /* BaseViewXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA132655FD1A00144253 /* BaseViewXib.swift */; };
+		72F5BA172655FDE000144253 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA162655FDE000144253 /* BaseViewController.swift */; };
+		72F5BA1C2655FFE100144253 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA1B2655FFE100144253 /* NavigationView.swift */; };
+		72F5BA202655FFEF00144253 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F5BA1F2655FFEF00144253 /* NavigationView.xib */; };
+		72F5BA232656000600144253 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5BA222656000600144253 /* InputView.swift */; };
+		72F5BA262656001200144253 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72F5BA252656001200144253 /* InputView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +60,18 @@
 		72F5B9F42655FA0300144253 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		72F5B9F52655FA0300144253 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		72F5B9F62655FA0300144253 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		72F5B9FF2655FC0F00144253 /* Sarala-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarala-Regular.ttf"; sourceTree = "<group>"; };
+		72F5BA002655FC0F00144253 /* Sarala-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarala-Bold.ttf"; sourceTree = "<group>"; };
+		72F5BA052655FC8300144253 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		72F5BA092655FC9600144253 /* UITableView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extension.swift"; sourceTree = "<group>"; };
+		72F5BA0C2655FCA900144253 /* UICollectionView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+extension.swift"; sourceTree = "<group>"; };
+		72F5BA0F2655FCB700144253 /* UIScreen+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+extension.swift"; sourceTree = "<group>"; };
+		72F5BA132655FD1A00144253 /* BaseViewXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewXib.swift; sourceTree = "<group>"; };
+		72F5BA162655FDE000144253 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		72F5BA1B2655FFE100144253 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		72F5BA1F2655FFEF00144253 /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
+		72F5BA222656000600144253 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		72F5BA252656001200144253 /* InputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +104,8 @@
 		72F5B9BF2655F85300144253 /* Hu&Te */ = {
 			isa = PBXGroup;
 			children = (
+				72F5B9FE2655FBD600144253 /* App Constraint */,
+				72F5B9FC2655FBBF00144253 /* App Custom */,
 				72F5B9D92655F89300144253 /* Modules */,
 				72F5B9C02655F85300144253 /* AppDelegate.swift */,
 				72F5B9C22655F85300144253 /* SceneDelegate.swift */,
@@ -151,6 +177,72 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		72F5B9FC2655FBBF00144253 /* App Custom */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA122655FD0C00144253 /* Base */,
+				72F5BA042655FC6300144253 /* Extension */,
+				72F5B9FD2655FBCA00144253 /* View */,
+			);
+			path = "App Custom";
+			sourceTree = "<group>";
+		};
+		72F5B9FD2655FBCA00144253 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA1A2655FFC600144253 /* Text Field */,
+				72F5BA192655FFBB00144253 /* Navigation */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72F5B9FE2655FBD600144253 /* App Constraint */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA002655FC0F00144253 /* Sarala-Bold.ttf */,
+				72F5B9FF2655FC0F00144253 /* Sarala-Regular.ttf */,
+			);
+			path = "App Constraint";
+			sourceTree = "<group>";
+		};
+		72F5BA042655FC6300144253 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA052655FC8300144253 /* UIView+extension.swift */,
+				72F5BA092655FC9600144253 /* UITableView+extension.swift */,
+				72F5BA0C2655FCA900144253 /* UICollectionView+extension.swift */,
+				72F5BA0F2655FCB700144253 /* UIScreen+extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		72F5BA122655FD0C00144253 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA132655FD1A00144253 /* BaseViewXib.swift */,
+				72F5BA162655FDE000144253 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		72F5BA192655FFBB00144253 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA1B2655FFE100144253 /* NavigationView.swift */,
+				72F5BA1F2655FFEF00144253 /* NavigationView.xib */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		72F5BA1A2655FFC600144253 /* Text Field */ = {
+			isa = PBXGroup;
+			children = (
+				72F5BA222656000600144253 /* InputView.swift */,
+				72F5BA252656001200144253 /* InputView.xib */,
+			);
+			path = "Text Field";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,8 +304,12 @@
 				72F5B9E92655F96F00144253 /* LoginViewController.xib in Resources */,
 				72F5B9D02655F85600144253 /* LaunchScreen.storyboard in Resources */,
 				72F5B9F12655F9CF00144253 /* HomeViewController.xib in Resources */,
+				72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */,
+				72F5BA022655FC0F00144253 /* Sarala-Bold.ttf in Resources */,
 				72F5B9CD2655F85600144253 /* Assets.xcassets in Resources */,
 				72F5B9E22655F95E00144253 /* RegisterViewController.xib in Resources */,
+				72F5BA202655FFEF00144253 /* NavigationView.xib in Resources */,
+				72F5BA262656001200144253 /* InputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,16 +320,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F5BA1C2655FFE100144253 /* NavigationView.swift in Sources */,
 				72F5B9F72655FA0300144253 /* ProfilePresenter.swift in Sources */,
+				72F5BA142655FD1A00144253 /* BaseViewXib.swift in Sources */,
 				72F5B9E02655F95E00144253 /* RegisterPresenter.swift in Sources */,
 				72F5B9C52655F85300144253 /* ViewController.swift in Sources */,
 				72F5B9E72655F96F00144253 /* LoginPresenter.swift in Sources */,
+				72F5BA172655FDE000144253 /* BaseViewController.swift in Sources */,
+				72F5BA062655FC8300144253 /* UIView+extension.swift in Sources */,
+				72F5BA0D2655FCA900144253 /* UICollectionView+extension.swift in Sources */,
+				72F5BA0A2655FC9600144253 /* UITableView+extension.swift in Sources */,
 				72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */,
 				72F5B9E82655F96F00144253 /* LoginViewController.swift in Sources */,
+				72F5BA102655FCB700144253 /* UIScreen+extension.swift in Sources */,
 				72F5B9F82655FA0300144253 /* ProfileViewController.swift in Sources */,
 				72F5B9F02655F9CF00144253 /* HomeViewController.swift in Sources */,
 				72F5B9E12655F95E00144253 /* RegisterViewController.swift in Sources */,
 				72F5B9EF2655F9CF00144253 /* HomePresenter.swift in Sources */,
+				72F5BA232656000600144253 /* InputView.swift in Sources */,
 				72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */,
 				72F5B9CB2655F85300144253 /* Hu_Te.xcdatamodeld in Sources */,
 			);

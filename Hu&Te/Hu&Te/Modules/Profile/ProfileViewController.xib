@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Hu_Te" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,7 +16,39 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kvj-u7-9XU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5U-ba-XBq">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="X5U-ba-XBq" firstAttribute="leading" secondItem="Kvj-u7-9XU" secondAttribute="leading" id="UDu-9B-HHg"/>
+                        <constraint firstAttribute="bottom" secondItem="X5U-ba-XBq" secondAttribute="bottom" id="Wc1-fv-sp9"/>
+                        <constraint firstAttribute="trailing" secondItem="X5U-ba-XBq" secondAttribute="trailing" id="fcP-E3-OsF"/>
+                        <constraint firstItem="X5U-ba-XBq" firstAttribute="top" secondItem="Kvj-u7-9XU" secondAttribute="top" id="kAq-B9-TQI"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="X5U-ba-XBq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="06s-So-i5l"/>
+                <constraint firstItem="Kvj-u7-9XU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DC0-Ut-XDT"/>
+                <constraint firstAttribute="trailing" secondItem="Kvj-u7-9XU" secondAttribute="trailing" id="USn-kP-HrV"/>
+                <constraint firstItem="X5U-ba-XBq" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="ise-rN-MYt"/>
+                <constraint firstItem="Kvj-u7-9XU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qHu-tJ-uwc"/>
+                <constraint firstAttribute="bottom" secondItem="Kvj-u7-9XU" secondAttribute="bottom" id="ylI-7c-Gf6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-241" y="99"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
