@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72DE88E62656584800AC25B4 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */; };
+		72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */; };
+		72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */; };
 		72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C02655F85300144253 /* AppDelegate.swift */; };
 		72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C22655F85300144253 /* SceneDelegate.swift */; };
 		72F5B9C52655F85300144253 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C42655F85300144253 /* ViewController.swift */; };
@@ -49,6 +52,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
+		72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		72F5B9BD2655F85300144253 /* Hu&Te.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hu&Te.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F5B9C02655F85300144253 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F5B9C22655F85300144253 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72DE88E22656582C00AC25B4 /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */,
+				72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */,
+				72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */,
+			);
+			path = "Change Password";
+			sourceTree = "<group>";
+		};
 		72F5B9B42655F85200144253 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +205,7 @@
 		72F5B9F32655F9E100144253 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				72DE88E22656582C00AC25B4 /* Change Password */,
 				72F5B9F42655FA0300144253 /* ProfilePresenter.swift */,
 				72F5B9F52655FA0300144253 /* ProfileViewController.swift */,
 				72F5B9F62655FA0300144253 /* ProfileViewController.xib */,
@@ -362,6 +379,7 @@
 				72F5B9F92655FA0300144253 /* ProfileViewController.xib in Resources */,
 				72F5B9E92655F96F00144253 /* LoginViewController.xib in Resources */,
 				72F5B9D02655F85600144253 /* LaunchScreen.storyboard in Resources */,
+				72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */,
 				72F5B9F12655F9CF00144253 /* HomeViewController.xib in Resources */,
 				72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */,
 				84DFE8222656559000E97117 /* SpeakerCell.xib in Resources */,
@@ -392,10 +410,12 @@
 				72F5B9C52655F85300144253 /* ViewController.swift in Sources */,
 				84DFE7E12656446000E97117 /* SettingViewController.swift in Sources */,
 				72F5B9E72655F96F00144253 /* LoginPresenter.swift in Sources */,
+				72DE88E62656584800AC25B4 /* ChangePasswordPresenter.swift in Sources */,
 				72F5BA172655FDE000144253 /* BaseViewController.swift in Sources */,
 				72F5BA062655FC8300144253 /* UIView+extension.swift in Sources */,
 				72F5BA0D2655FCA900144253 /* UICollectionView+extension.swift in Sources */,
 				72F5BA0A2655FC9600144253 /* UITableView+extension.swift in Sources */,
+				72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */,
 				72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */,
 				72F5B9E82655F96F00144253 /* LoginViewController.swift in Sources */,
 				84DFE81926564D6100E97117 /* NormalHeaderView.swift in Sources */,

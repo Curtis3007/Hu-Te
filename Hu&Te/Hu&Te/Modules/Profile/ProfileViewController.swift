@@ -12,7 +12,11 @@ import UIKit
 
 class ProfileViewController: UIViewController, ProfileViewProtocol {
 
-	var presenter: ProfilePresenterProtocol
+    @IBOutlet weak var vNavigation: NavigationView!
+    @IBOutlet weak var tfName: UITextField!
+    @IBOutlet weak var tfEmail: UITextField!
+    @IBOutlet weak var tfPhone: UITextField!
+    var presenter: ProfilePresenterProtocol
 
 	init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
@@ -25,9 +29,31 @@ class ProfileViewController: UIViewController, ProfileViewProtocol {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter.view = self
-        presenter.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI(){
+        vNavigation.setupNavigation(title: "Profile", rightTitle: "Manage")
+        vNavigation.onTapRightButton = {
+            
+        }
+        vNavigation.onTapBack = {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
+    @IBAction func onTapChangePassword(_ sender: Any) {
+        
+    }
+    
+    @IBAction func onTapLogout(_ sender: Any) {
+        let alert = UIAlertController(title: "Logout", message: "Would you like to logout the application?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Logout", style: UIAlertAction.Style.destructive, handler: {_ in
+            self.navigationController?.pushViewController(LoginViewController(presenter: LoginPresenter()), animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 }

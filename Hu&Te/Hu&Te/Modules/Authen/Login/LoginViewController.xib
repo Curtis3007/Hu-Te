@@ -102,14 +102,14 @@
                                         <action selector="onTapLogin:" destination="-1" eventType="touchUpInside" id="igt-Bw-cw3"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP6-kN-1YL">
-                                    <rect key="frame" x="87" y="632" width="143.5" height="23"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have any account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP6-kN-1YL">
+                                    <rect key="frame" x="67" y="632" width="161" height="23"/>
                                     <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="14"/>
                                     <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YhI-TS-2Rc">
-                                    <rect key="frame" x="234.5" y="620.5" width="100" height="46"/>
+                                    <rect key="frame" x="232" y="620.5" width="100" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEx-Qq-TF1">
                                             <rect key="frame" x="22.5" y="13" width="55" height="20"/>
@@ -144,7 +144,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biH-GD-shC">
-                                    <rect key="frame" x="234.5" y="620.5" width="100" height="46"/>
+                                    <rect key="frame" x="232" y="620.5" width="100" height="46"/>
                                     <connections>
                                         <action selector="onTapRegister:" destination="-1" eventType="touchUpInside" id="RyT-G1-yfP"/>
                                     </connections>
@@ -177,7 +177,7 @@
                                 <constraint firstItem="CDw-wi-E8x" firstAttribute="leading" secondItem="AhG-f6-RAX" secondAttribute="leading" constant="30" id="nnt-Uo-vcf"/>
                                 <constraint firstItem="ynT-x0-Q2Z" firstAttribute="leading" secondItem="AhG-f6-RAX" secondAttribute="leading" constant="50" id="phz-JN-Nqo"/>
                                 <constraint firstItem="Hdi-e6-uf6" firstAttribute="top" secondItem="AhG-f6-RAX" secondAttribute="top" constant="150" id="qt2-De-4u5"/>
-                                <constraint firstItem="pP6-kN-1YL" firstAttribute="leading" secondItem="AhG-f6-RAX" secondAttribute="leading" constant="87" id="ysO-jZ-RBL"/>
+                                <constraint firstItem="pP6-kN-1YL" firstAttribute="leading" secondItem="AhG-f6-RAX" secondAttribute="leading" constant="67" id="ysO-jZ-RBL"/>
                                 <constraint firstItem="biH-GD-shC" firstAttribute="centerY" secondItem="YhI-TS-2Rc" secondAttribute="centerY" id="zfw-Jz-azh"/>
                             </constraints>
                         </view>
