@@ -3,13 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		72DE88E62656584800AC25B4 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */; };
 		72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */; };
 		72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */; };
+		72DE88FC2657591500AC25B4 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88F92657591500AC25B4 /* SettingsPresenter.swift */; };
+		72DE88FD2657591500AC25B4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88FA2657591500AC25B4 /* SettingsViewController.swift */; };
+		72DE88FE2657591500AC25B4 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE88FB2657591500AC25B4 /* SettingsViewController.xib */; };
 		72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C02655F85300144253 /* AppDelegate.swift */; };
 		72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C22655F85300144253 /* SceneDelegate.swift */; };
 		72F5B9C52655F85300144253 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C42655F85300144253 /* ViewController.swift */; };
@@ -48,6 +51,9 @@
 		72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
 		72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		72DE88F92657591500AC25B4 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		72DE88FA2657591500AC25B4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		72DE88FB2657591500AC25B4 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		72F5B9BD2655F85300144253 /* Hu&Te.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hu&Te.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F5B9C02655F85300144253 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F5B9C22655F85300144253 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,16 @@
 			path = "Change Password";
 			sourceTree = "<group>";
 		};
+		72DE88F82657590200AC25B4 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				72DE88F92657591500AC25B4 /* SettingsPresenter.swift */,
+				72DE88FA2657591500AC25B4 /* SettingsViewController.swift */,
+				72DE88FB2657591500AC25B4 /* SettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		72F5B9B42655F85200144253 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +160,7 @@
 		72F5B9D92655F89300144253 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				72DE88F82657590200AC25B4 /* Settings */,
 				72F5B9F32655F9E100144253 /* Profile */,
 				72F5B9EB2655F9C000144253 /* Home */,
 				72F5B9DA2655F8EC00144253 /* Authen */,
@@ -273,7 +290,6 @@
 				3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */,
 				D26DC471F5DF7326C780CA90 /* Pods-Hu&Te.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -351,6 +367,7 @@
 				72F5B9F12655F9CF00144253 /* HomeViewController.xib in Resources */,
 				72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */,
 				72F5BA022655FC0F00144253 /* Sarala-Bold.ttf in Resources */,
+				72DE88FE2657591500AC25B4 /* SettingsViewController.xib in Resources */,
 				72F5B9CD2655F85600144253 /* Assets.xcassets in Resources */,
 				72F5B9E22655F95E00144253 /* RegisterViewController.xib in Resources */,
 				72F5BA202655FFEF00144253 /* NavigationView.xib in Resources */,
@@ -426,9 +443,11 @@
 				72F5B9F02655F9CF00144253 /* HomeViewController.swift in Sources */,
 				72F5B9E12655F95E00144253 /* RegisterViewController.swift in Sources */,
 				72F5B9EF2655F9CF00144253 /* HomePresenter.swift in Sources */,
+				72DE88FC2657591500AC25B4 /* SettingsPresenter.swift in Sources */,
 				72F5BA232656000600144253 /* InputView.swift in Sources */,
 				72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */,
 				72F5B9CB2655F85300144253 /* Hu_Te.xcdatamodeld in Sources */,
+				72DE88FD2657591500AC25B4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
