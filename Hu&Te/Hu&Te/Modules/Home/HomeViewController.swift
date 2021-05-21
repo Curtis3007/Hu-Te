@@ -17,7 +17,7 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     @IBOutlet weak var lbTemp: UILabel!
     @IBOutlet weak var lbHumid: UILabel!
     var presenter: HomePresenterProtocol
-
+    var timer = Timer()
 	init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: "HomeViewController", bundle: nil)
@@ -34,7 +34,14 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     }
     
     func setupUI(){
+        lbUser.text = "Hi, " + (UserDefaultHelper.shared.userName ?? "Username")
         lbSpeaker.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(randomNum), userInfo: nil, repeats: true)
+    }
+    
+    @objc func randomNum(){
+        lbTemp.text = String(Int.random(in: 0...100)) + "°C"
+        lbHumid.text = String(Int.random(in: 0...100)) + "%"
     }
     
     @IBAction func onTapPofile(_ sender: Any) {
@@ -50,7 +57,7 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     }
     
     @IBAction func onTapSettings(_ sender: Any) {
-        
+        navigationController?.pushViewController(SettingsViewController(presenter: SettingsPresenter()), animated: true)
     }
     
     @IBAction func onTapHistory(_ sender: Any) {

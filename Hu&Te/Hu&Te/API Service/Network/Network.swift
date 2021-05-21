@@ -61,9 +61,8 @@ struct APINetwork: APINetworkProtocol {
             }
         } else {
             HUD.hide()
-            PopUpHelper.shared.showCommonPopUp(title: "Error", description: "Internet Connection not Available!", height: 150) {
-                return
-            }
+            let errorVC = UIAlertController.alertAcontroller(forError: APIError(message: "Internet Connection not Available!"))
+            errorVC.showErrorOnWindow()
         }
     }
     func upload(endPoint: EndPointType, success: @escaping NetworkJSONSuccess, failure: @escaping RequestFailure) {
@@ -90,9 +89,8 @@ struct APINetwork: APINetworkProtocol {
             }
         } else {
             HUD.hide()
-            PopUpHelper.shared.showCommonPopUp(title: "Error", description: "Internet Connection not Available!", height: 150) {
-                return
-            }
+            let errorVC = UIAlertController.alertAcontroller(forError: APIError(message: "Internet Connection not Available!"))
+            errorVC.showErrorOnWindow()
         }
     }
 }

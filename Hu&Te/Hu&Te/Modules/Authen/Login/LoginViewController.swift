@@ -10,7 +10,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginViewProtocol {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var tfEmail: InputView!
     @IBOutlet weak var tfPassword: InputView!
@@ -29,7 +29,6 @@ class LoginViewController: UIViewController, LoginViewProtocol {
         super.viewDidLoad()
 
         presenter.view = self
-        presenter.viewDidLoad()
         setupUI()
     }
     
@@ -41,10 +40,28 @@ class LoginViewController: UIViewController, LoginViewProtocol {
     }
 
     @IBAction func onTapLogin(_ sender: Any) {
-        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+        print("Email: \(tfEmail.textField.text)")
+        print("Email: \(tfPassword.textField.text)")
+        presenter.login(email: tfEmail.textField.text ?? "", password: tfPassword.textField.text ?? "")
+//        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
     }
     
     @IBAction func onTapRegister(_ sender: Any) {
         navigationController?.pushViewController(RegisterViewController(presenter: RegisterPresenter()), animated: true)
     }
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+}
+
+extension LoginViewController: LoginViewProtocol{
+    func loginSuccess() {
+        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+    }
+    
+    func loginFailed(error: String) {
+        showAlert("Login Failed", message: error)
+    }
+    
+    
 }

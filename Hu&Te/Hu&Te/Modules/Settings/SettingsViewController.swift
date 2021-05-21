@@ -12,7 +12,18 @@ import UIKit
 
 class SettingsViewController: UIViewController, SettingsViewProtocol {
 
-	var presenter: SettingsPresenterProtocol
+    @IBOutlet weak var vNavigation: NavigationView!
+    @IBOutlet weak var imgSpeakerStatus: UIImageView!
+    var presenter: SettingsPresenterProtocol
+    var speakerStatus: Bool = true {
+        didSet {
+            if speakerStatus {
+                imgSpeakerStatus.image = #imageLiteral(resourceName: "ic_speaker_on")
+            } else {
+                imgSpeakerStatus.image = #imageLiteral(resourceName: "ic_speaker_off")
+            }
+        }
+    }
 
 	init(presenter: SettingsPresenterProtocol) {
         self.presenter = presenter
@@ -25,9 +36,18 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter.view = self
-        presenter.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI(){
+        vNavigation.setupNavigation(title: "Settings", rightTitle: "Save")
+        vNavigation.onTapBack = {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
+    @IBAction func onTapSwitchButton(_ sender: Any) {
+        speakerStatus = !speakerStatus
+    }
 }

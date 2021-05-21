@@ -12,7 +12,12 @@ import UIKit
 
 class RegisterViewController: UIViewController, RegisterViewProtocol {
 
-	var presenter: RegisterPresenterProtocol
+    @IBOutlet weak var tfName: InputView!
+    @IBOutlet weak var tfEmail: InputView!
+    @IBOutlet weak var tfPhone: InputView!
+    @IBOutlet weak var tfPassword: InputView!
+    @IBOutlet weak var tfConfirmPassword: InputView!
+    var presenter: RegisterPresenterProtocol
 
 	init(presenter: RegisterPresenterProtocol) {
         self.presenter = presenter
@@ -27,11 +32,27 @@ class RegisterViewController: UIViewController, RegisterViewProtocol {
         super.viewDidLoad()
 
         presenter.view = self
-        presenter.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI(){
+        tfName.setupData(title: "Name")
+        tfEmail.setupData(title: "Email")
+        tfPhone.setupData(title: "Phone")
+        tfPassword.setupData(title: "Password")
+        tfConfirmPassword.setupData(title: "Confirm Password")
     }
     
     @IBAction func onTapLogin(_ sender: Any) {
-        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+        if (tfName.textField.text == "" || tfPhone.textField.text == "" ) {
+            showAlert("Error", message: "Please fill all information!")
+            return
+        }
+        if (tfPassword.textField.text != tfConfirmPassword.textField.text) {
+            showAlert("Error", message: "Confirm password isn't correct!")
+            return
+        }
+        
     }
     
     @IBAction func onTapBackLogin(_ sender: Any) {

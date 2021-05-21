@@ -23,7 +23,13 @@ struct DefaultHeader {
         var header: [String: String] = ["Content-Type": "application/json"]
         if let token = UserDefaultHelper.shared.accessToken {
            print("Token", token)
-           header["Http-Auth-Token"] = token
+           header["auth-token"] = token
+            
+//        } else {
+//            header["email"] = "admin@gmail.com"
+//            header["password"] = "admin123"
+//            print(header)
+//        }
         }
         return header
     }

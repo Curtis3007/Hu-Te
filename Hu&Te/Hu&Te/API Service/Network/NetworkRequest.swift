@@ -12,19 +12,19 @@
  ***/
 import Alamofire
 
-#if PROD
-public var BASE_URL = URL(string: "https://makerspace-prod.vinova.sg/api")!
-public var BASE_URL_IMAGE = URL(string: "https://makerspace-prod.vinova.sg")!
-public var GOOGLE_SERVICE_FILE = ""
-#elseif DEV
-public var BASE_URL = URL(string: "https://makerspace-dev.vinova.sg/api")!
-public var BASE_URL_IMAGE = URL(string: "https://makerspace-dev.vinova.sg")!
+//#if PROD
+//public var BASE_URL = URL(string: "https://makerspace-prod.vinova.sg/api")!
+//public var BASE_URL_IMAGE = URL(string: "https://makerspace-prod.vinova.sg")!
+//public var GOOGLE_SERVICE_FILE = ""
+//#elseif DEV
+//public var BASE_URL = URL(string: "https://makerspace-dev.vinova.sg/api")!
+//public var BASE_URL_IMAGE = URL(string: "https://makerspace-dev.vinova.sg")!
+////public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
+//#else
+public var BASE_URL = URL(string: "https://dadn-project-123.herokuapp.com/api")!
+//public var BASE_URL_IMAGE = URL(string: "http://makerspace-123.vinova.sg")!
 //public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
-#else
-public var BASE_URL = URL(string: "https://makerspace-staging.vinova.sg/api")!
-public var BASE_URL_IMAGE = URL(string: "http://makerspace-staging.vinova.sg")!
-//public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
-#endif
+//#endif
 //---
 typealias RequestSuccess = (_ data: Data) -> Void
 typealias RequestFailure = (_ error: APIError?) -> Void
@@ -55,19 +55,11 @@ struct NetworkRequest: NetworkRequestProtocol {
     
     let manager: SessionManager = {
         let pathToCert = Bundle.main.path(forResource: "vinova_sg", ofType: "der")
-        let serverDomain = "makerspace-prod.vinova.sg"
+        let serverDomain = "dadn-project-123.herokuapp.com"
         let localCertificate = try! Data(contentsOf: URL(fileURLWithPath: pathToCert!))
-        let serverTrustPolicy = ServerTrustPolicy.pinCertificates(
-            certificates: [SecCertificateCreateWithData(nil, localCertificate as CFData)!],
-            validateCertificateChain: true,
-            validateHost: true
-        )
-        let serverTrustPolicies = [
-            serverDomain : serverTrustPolicy
-        ]
+        
         return SessionManager(
-            configuration: configuration,
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+            configuration: configuration
         )
     }()
     
@@ -162,15 +154,6 @@ struct NetworkRequest: NetworkRequestProtocol {
                                 if photos.count > 0{
                                     for photo in photos{
                                         if photo.id == nil{
-                                            if let image = photo.image{
-                                                if let data = image.resized(toWidth: 700)?.jpegData(compressionQuality: 0.8) {
-                                                    print("size of image and name:", Double(data.count), key)
-                                                    multipartFormData.append("0".data(using: String.Encoding.utf8)!, withName: "steps[][photos][][_destroy]")
-                                                    multipartFormData.append(data, withName: "steps[][photos][][image]",
-                                                                             fileName: "\(Date().timeIntervalSince1970).png",
-                                                                             mimeType: "image/png")
-                                                }
-                                            }
                                         }
                                     }
                                 }

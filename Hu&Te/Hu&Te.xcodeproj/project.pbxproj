@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72D431CD26577A8D00AFAB22 /* GraphPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D431CA26577A8D00AFAB22 /* GraphPresenter.swift */; };
+		72D431CE26577A8D00AFAB22 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D431CB26577A8D00AFAB22 /* GraphViewController.swift */; };
+		72D431CF26577A8D00AFAB22 /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D431CC26577A8D00AFAB22 /* GraphViewController.xib */; };
+		72D431D22657975800AFAB22 /* ManageEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D431D12657975800AFAB22 /* ManageEndPoint.swift */; };
 		72DE88E62656584800AC25B4 /* ChangePasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */; };
 		72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */; };
 		72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */; };
@@ -19,6 +23,16 @@
 		72DE890C26575A1800AC25B4 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE890B26575A1800AC25B4 /* EndPointType.swift */; };
 		72DE890F26575A3300AC25B4 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE890E26575A3300AC25B4 /* BaseResponse.swift */; };
 		72DE891226575A4800AC25B4 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE891126575A4800AC25B4 /* Network.swift */; };
+		72DE892126575BFD00AC25B4 /* AuthenEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE892026575BFD00AC25B4 /* AuthenEndPoint.swift */; };
+		72DE892426575C0B00AC25B4 /* AuthenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE892326575C0B00AC25B4 /* AuthenService.swift */; };
+		72DE892726575CFC00AC25B4 /* UserDefaultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE892626575CFC00AC25B4 /* UserDefaultHelper.swift */; };
+		72DE892A26575DA700AC25B4 /* UIAlert+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE892926575DA700AC25B4 /* UIAlert+extension.swift */; };
+		72DE892D26575E8800AC25B4 /* CheckInNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE892C26575E8800AC25B4 /* CheckInNetwork.swift */; };
+		72DE893026575F0400AC25B4 /* NewStept.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE892F26575F0400AC25B4 /* NewStept.swift */; };
+		72DE89342657629C00AC25B4 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE89332657629C00AC25B4 /* UserEntity.swift */; };
+		72DE89372657690400AC25B4 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE89362657690400AC25B4 /* Provider.swift */; };
+		72DE893A26576A7500AC25B4 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE893926576A7500AC25B4 /* UIViewController+extension.swift */; };
+		72DE893D26576CF100AC25B4 /* vinova_sg.der in Resources */ = {isa = PBXBuildFile; fileRef = 72DE893C26576CF100AC25B4 /* vinova_sg.der */; };
 		72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C02655F85300144253 /* AppDelegate.swift */; };
 		72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C22655F85300144253 /* SceneDelegate.swift */; };
 		72F5B9C52655F85300144253 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5B9C42655F85300144253 /* ViewController.swift */; };
@@ -54,6 +68,10 @@
 
 /* Begin PBXFileReference section */
 		3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hu&Te.debug.xcconfig"; path = "Target Support Files/Pods-Hu&Te/Pods-Hu&Te.debug.xcconfig"; sourceTree = "<group>"; };
+		72D431CA26577A8D00AFAB22 /* GraphPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphPresenter.swift; sourceTree = "<group>"; };
+		72D431CB26577A8D00AFAB22 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		72D431CC26577A8D00AFAB22 /* GraphViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
+		72D431D12657975800AFAB22 /* ManageEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageEndPoint.swift; sourceTree = "<group>"; };
 		72DE88E32656584800AC25B4 /* ChangePasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordPresenter.swift; sourceTree = "<group>"; };
 		72DE88E42656584800AC25B4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		72DE88E52656584800AC25B4 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
@@ -66,6 +84,16 @@
 		72DE890B26575A1800AC25B4 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		72DE890E26575A3300AC25B4 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		72DE891126575A4800AC25B4 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		72DE892026575BFD00AC25B4 /* AuthenEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenEndPoint.swift; sourceTree = "<group>"; };
+		72DE892326575C0B00AC25B4 /* AuthenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenService.swift; sourceTree = "<group>"; };
+		72DE892626575CFC00AC25B4 /* UserDefaultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultHelper.swift; sourceTree = "<group>"; };
+		72DE892926575DA700AC25B4 /* UIAlert+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlert+extension.swift"; sourceTree = "<group>"; };
+		72DE892C26575E8800AC25B4 /* CheckInNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInNetwork.swift; sourceTree = "<group>"; };
+		72DE892F26575F0400AC25B4 /* NewStept.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStept.swift; sourceTree = "<group>"; };
+		72DE89332657629C00AC25B4 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		72DE89362657690400AC25B4 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		72DE893926576A7500AC25B4 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
+		72DE893C26576CF100AC25B4 /* vinova_sg.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = vinova_sg.der; sourceTree = "<group>"; };
 		72F5B9BD2655F85300144253 /* Hu&Te.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hu&Te.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F5B9C02655F85300144253 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F5B9C22655F85300144253 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +142,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72D431C926577A7C00AFAB22 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				72D431CA26577A8D00AFAB22 /* GraphPresenter.swift */,
+				72D431CB26577A8D00AFAB22 /* GraphViewController.swift */,
+				72D431CC26577A8D00AFAB22 /* GraphViewController.xib */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
 		72DE88E22656582C00AC25B4 /* Change Password */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +175,11 @@
 		72DE8900265759AB00AC25B4 /* API Service */ = {
 			isa = PBXGroup;
 			children = (
+				72DE89322657628B00AC25B4 /* Model */,
+				72DE891F26575BD700AC25B4 /* Services */,
+				72DE891D26575BCF00AC25B4 /* End Point */,
 				72DE8901265759B600AC25B4 /* Network */,
+				72DE892626575CFC00AC25B4 /* UserDefaultHelper.swift */,
 			);
 			path = "API Service";
 			sourceTree = "<group>";
@@ -151,8 +193,36 @@
 				72DE890B26575A1800AC25B4 /* EndPointType.swift */,
 				72DE890E26575A3300AC25B4 /* BaseResponse.swift */,
 				72DE891126575A4800AC25B4 /* Network.swift */,
+				72DE892C26575E8800AC25B4 /* CheckInNetwork.swift */,
+				72DE892F26575F0400AC25B4 /* NewStept.swift */,
+				72DE89362657690400AC25B4 /* Provider.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		72DE891D26575BCF00AC25B4 /* End Point */ = {
+			isa = PBXGroup;
+			children = (
+				72DE892026575BFD00AC25B4 /* AuthenEndPoint.swift */,
+				72D431D12657975800AFAB22 /* ManageEndPoint.swift */,
+			);
+			path = "End Point";
+			sourceTree = "<group>";
+		};
+		72DE891F26575BD700AC25B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				72DE892326575C0B00AC25B4 /* AuthenService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		72DE89322657628B00AC25B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				72DE89332657629C00AC25B4 /* UserEntity.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		72F5B9B42655F85200144253 = {
@@ -176,6 +246,7 @@
 		72F5B9BF2655F85300144253 /* Hu&Te */ = {
 			isa = PBXGroup;
 			children = (
+				72DE893C26576CF100AC25B4 /* vinova_sg.der */,
 				72DE8900265759AB00AC25B4 /* API Service */,
 				72F5B9FE2655FBD600144253 /* App Constraint */,
 				72F5B9FC2655FBBF00144253 /* App Custom */,
@@ -194,6 +265,7 @@
 		72F5B9D92655F89300144253 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				72D431C926577A7C00AFAB22 /* Graph */,
 				72DE88F82657590200AC25B4 /* Settings */,
 				72F5B9F32655F9E100144253 /* Profile */,
 				72F5B9EB2655F9C000144253 /* Home */,
@@ -287,6 +359,8 @@
 				72F5BA092655FC9600144253 /* UITableView+extension.swift */,
 				72F5BA0C2655FCA900144253 /* UICollectionView+extension.swift */,
 				72F5BA0F2655FCB700144253 /* UIScreen+extension.swift */,
+				72DE892926575DA700AC25B4 /* UIAlert+extension.swift */,
+				72DE893926576A7500AC25B4 /* UIViewController+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -397,9 +471,11 @@
 				72F5B9F92655FA0300144253 /* ProfileViewController.xib in Resources */,
 				72F5B9E92655F96F00144253 /* LoginViewController.xib in Resources */,
 				72F5B9D02655F85600144253 /* LaunchScreen.storyboard in Resources */,
+				72DE893D26576CF100AC25B4 /* vinova_sg.der in Resources */,
 				72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */,
 				72F5B9F12655F9CF00144253 /* HomeViewController.xib in Resources */,
 				72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */,
+				72D431CF26577A8D00AFAB22 /* GraphViewController.xib in Resources */,
 				72F5BA022655FC0F00144253 /* Sarala-Bold.ttf in Resources */,
 				72DE88FE2657591500AC25B4 /* SettingsViewController.xib in Resources */,
 				72F5B9CD2655F85600144253 /* Assets.xcassets in Resources */,
@@ -458,13 +534,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DE892126575BFD00AC25B4 /* AuthenEndPoint.swift in Sources */,
+				72D431CD26577A8D00AFAB22 /* GraphPresenter.swift in Sources */,
+				72DE89342657629C00AC25B4 /* UserEntity.swift in Sources */,
 				72F5BA1C2655FFE100144253 /* NavigationView.swift in Sources */,
 				72F5B9F72655FA0300144253 /* ProfilePresenter.swift in Sources */,
 				72F5BA142655FD1A00144253 /* BaseViewXib.swift in Sources */,
+				72DE892426575C0B00AC25B4 /* AuthenService.swift in Sources */,
 				72F5B9E02655F95E00144253 /* RegisterPresenter.swift in Sources */,
 				72DE8906265759E700AC25B4 /* MapperData.swift in Sources */,
 				72F5B9C52655F85300144253 /* ViewController.swift in Sources */,
 				72F5B9E72655F96F00144253 /* LoginPresenter.swift in Sources */,
+				72DE89372657690400AC25B4 /* Provider.swift in Sources */,
+				72D431CE26577A8D00AFAB22 /* GraphViewController.swift in Sources */,
 				72DE88E62656584800AC25B4 /* ChangePasswordPresenter.swift in Sources */,
 				72F5BA172655FDE000144253 /* BaseViewController.swift in Sources */,
 				72F5BA062655FC8300144253 /* UIView+extension.swift in Sources */,
@@ -474,9 +556,14 @@
 				72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */,
 				72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */,
 				72F5B9E82655F96F00144253 /* LoginViewController.swift in Sources */,
+				72DE892D26575E8800AC25B4 /* CheckInNetwork.swift in Sources */,
+				72DE893026575F0400AC25B4 /* NewStept.swift in Sources */,
 				72F5BA102655FCB700144253 /* UIScreen+extension.swift in Sources */,
+				72DE892726575CFC00AC25B4 /* UserDefaultHelper.swift in Sources */,
 				72F5B9F82655FA0300144253 /* ProfileViewController.swift in Sources */,
+				72D431D22657975800AFAB22 /* ManageEndPoint.swift in Sources */,
 				72F5B9F02655F9CF00144253 /* HomeViewController.swift in Sources */,
+				72DE893A26576A7500AC25B4 /* UIViewController+extension.swift in Sources */,
 				72F5B9E12655F95E00144253 /* RegisterViewController.swift in Sources */,
 				72DE891226575A4800AC25B4 /* Network.swift in Sources */,
 				72F5B9EF2655F9CF00144253 /* HomePresenter.swift in Sources */,
@@ -487,6 +574,7 @@
 				72F5B9CB2655F85300144253 /* Hu_Te.xcdatamodeld in Sources */,
 				72DE8903265759D600AC25B4 /* APIError.swift in Sources */,
 				72DE890926575A0200AC25B4 /* NetworkRequest.swift in Sources */,
+				72DE892A26575DA700AC25B4 /* UIAlert+extension.swift in Sources */,
 				72DE88FD2657591500AC25B4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
