@@ -32,11 +32,8 @@ class LoginPresenter: LoginPresenterProtocol {
         Provider.shared.loginAPIService.login(email: email, password: password, success: { [weak self] (user) in
             HUD.hide()
             guard let user = user, let strSelf = self else { return }
-            let userString = user.toJSONString()
             if user.token != nil {
-                UserDefaultHelper.shared.userLoggedInString = userString
                 UserDefaultHelper.shared.isFirstLogin = true
-                UserDefaultHelper.shared.isLoggedIn = true
                 UserDefaultHelper.shared.accessToken = user.token
                 UserDefaultHelper.shared.userId = user.id
                 UserDefaultHelper.shared.userName = user.name

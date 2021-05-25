@@ -10,7 +10,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewProtocol {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var lbSpeaker: UILabel!
     @IBOutlet weak var lbUser: UILabel!
@@ -30,18 +30,27 @@ class HomeViewController: UIViewController, HomeViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        presenter.getTemperature()
+        presenter.getHumidity()
+        navigationController?.navigationBar.isHidden = true
         setupUI()
+        print("Token: \(UserDefaultHelper.shared.accessToken ?? "No token") 123")
     }
     
     func setupUI(){
         lbUser.text = "Hi, " + (UserDefaultHelper.shared.userName ?? "Username")
         lbSpeaker.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(randomNum), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
     @objc func randomNum(){
         lbTemp.text = String(Int.random(in: 0...100)) + "°C"
         lbHumid.text = String(Int.random(in: 0...100)) + "%"
+    }
+    
+    @objc func fetchData(){
+        presenter.getTemperature()
+        presenter.getHumidity()
     }
     
     @IBAction func onTapPofile(_ sender: Any) {
@@ -63,4 +72,26 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     @IBAction func onTapHistory(_ sender: Any) {
         
     }
+}
+
+extension HomeViewController: HomeViewProtocol{
+    func getHumidSuccess() {
+        lbHumid.text = (presenter.humid?.value ?? "") + "%"
+    }
+    
+    func getHumidFailed(error: String) {
+        lbHumid.text = "..."
+        showAlert("Error", message: error)
+    }
+    
+    func getTempSuccess() {
+        lbTemp.text = (presenter.temperature?.value ?? "") + "°C"
+    }
+    
+    func getTempFailed(error: String) {
+        lbTemp.text = "..."
+        showAlert("Error", message: error)
+    }
+    
+    
 }

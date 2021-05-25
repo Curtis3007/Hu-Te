@@ -12,20 +12,52 @@ import Foundation
 
 // MARK: View -
 protocol HomeViewProtocol: class {
-
+    func getTempSuccess()
+    func getTempFailed(error: String)
+    func getHumidSuccess()
+    func getHumidFailed(error: String)
 }
 
 // MARK: Presenter -
 protocol HomePresenterProtocol: class {
 	var view: HomeViewProtocol? { get set }
-    func viewDidLoad()
+    var temperature: AdafruitEntity? {get set}
+    var humid: AdafruitEntity? {get set}
+    func getTemperature()
+    func getHumidity()
 }
 
 class HomePresenter: HomePresenterProtocol {
-
+    var humid: AdafruitEntity?
+    var temperature: AdafruitEntity?
+    
     weak var view: HomeViewProtocol?
-
-    func viewDidLoad() {
-
+    
+    func getTemperature(){
+        Provider.shared.adafruitAPIService.getTemperature(success: { [weak self] (temp) in
+            guard let strSelf = self else { return }
+            if temp.count == 0 {
+                strSelf.view?.getTempFailed(error: "Something went wrong")
+                return
+            }
+            strSelf.temperature = temp[0]
+            strSelf.view?.getTempSuccess()
+        }) { (error) in
+            self.view?.getTempFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+    }
+    
+    func getHumidity(){
+        Provider.shared.adafruitAPIService.getHumidity(success: { [weak self] (humid) in
+            guard let strSelf = self else { return }
+            if humid.count == 0 {
+                strSelf.view?.getTempFailed(error: "Something went wrong")
+                return
+            }
+            strSelf.humid = humid[0]
+            strSelf.view?.getHumidSuccess()
+        }) { (error) in
+            self.view?.getHumidFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
     }
 }

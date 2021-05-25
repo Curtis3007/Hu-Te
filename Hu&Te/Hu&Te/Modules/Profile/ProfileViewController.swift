@@ -53,7 +53,11 @@ class ProfileViewController: UIViewController, ProfileViewProtocol {
     @IBAction func onTapLogout(_ sender: Any) {
         let alert = UIAlertController(title: "Logout", message: "Would you like to logout the application?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Logout", style: UIAlertAction.Style.destructive, handler: {_ in
-            self.navigationController?.pushViewController(LoginViewController(presenter: LoginPresenter()), animated: true)
+            UserDefaultHelper.shared.accessToken = nil
+            UserDefaultHelper.shared.userId = nil
+            UserDefaultHelper.shared.userName = nil
+            UserDefaultHelper.shared.isAdmin = nil
+            AppRouter.shared.updateRootView()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

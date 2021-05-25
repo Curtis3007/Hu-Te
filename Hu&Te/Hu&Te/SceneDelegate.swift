@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         //window?.backgroundColor = UIColor.white
-        window?.rootViewController = UINavigationController(rootViewController: LoginViewController(presenter: LoginPresenter()))
+        AppRouter.shared.updateRootView()
         window?.makeKeyAndVisible()
     }
 

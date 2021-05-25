@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewProtocol{
     func loginSuccess() {
-        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+        AppRouter.shared.updateRootView()
     }
     
     func loginFailed(error: String) {

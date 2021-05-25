@@ -38,6 +38,19 @@ struct MapperData {
             
         }
     }
+    
+    static func mapArrayAdafruit<T: BaseMappable>(_ successHandler: @escaping SuccessHandler<T>.array) -> NetworkJSONAdafruitSuccess {
+        return { baseResponse in
+            let obj = Mapper<T>().mapArray(JSONObject: baseResponse)
+            if let obj = obj {
+                 successHandler(obj)
+            } else {
+                successHandler([])
+            }
+            
+        }
+    }
+    
     static func mapArrayNoData<T: BaseMappable>(_ successHandler: @escaping SuccessHandler<T>.array) -> NetworkJSONSuccess {
         return { baseResponse in
             let obj = Mapper<T>().mapArray(JSONObject: baseResponse)

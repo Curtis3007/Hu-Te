@@ -1,15 +1,10 @@
 //
-//  Network.swift
-//  cihyn-ios
+//  NetworkRequestAdafruit.swift
+//  Hu&Te
 //
-//  Created by Ngoc Duong on 9/27/18.
-//  Copyright © 2018 Mai Nhan. All rights reserved.
+//  Created by BigSur on 24/05/2021.
 //
 
-/***
- Input: endPoint (all info to request)
- Ouput: data or error
- ***/
 import Alamofire
 
 //#if PROD
@@ -21,31 +16,31 @@ import Alamofire
 //public var BASE_URL_IMAGE = URL(string: "https://makerspace-dev.vinova.sg")!
 ////public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
 //#else
-public var BASE_URL = URL(string: "https://dadn-project-123.herokuapp.com/api")!
-//public var BASE_URL_IMAGE = URL(string: "http://makerspace-123.vinova.sg")!
-//public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
-//#endif
-//---
-typealias RequestSuccess = (_ data: Data) -> Void
-typealias RequestFailure = (_ error: APIError?) -> Void
-
-//---
-typealias NetworkJSONSuccess = (_ data: [String: AnyObject] ) -> Void
-//---
-struct SuccessHandler<T> {
-    typealias object = (_ object: T?) -> Void
-    typealias array = (_ array: [T]) -> Void
-    typealias anyObject = (_ object: Any?) -> Void
-}
+public var BASE_URL_ADAFRUIT = URL(string: "https://io.adafruit.com/api/v2/nhat_nguyen123/feeds")!
+////public var BASE_URL_IMAGE = URL(string: "http://makerspace-123.vinova.sg")!
+////public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
+////#endif
+////---
+//typealias RequestSuccess = (_ data: Data) -> Void
+//typealias RequestFailure = (_ error: APIError?) -> Void
+//
+////---
+//typealias NetworkJSONSuccess = (_ data: [String: AnyObject] ) -> Void
+////---
+//struct SuccessHandler<T> {
+//    typealias object = (_ object: T?) -> Void
+//    typealias array = (_ array: [T]) -> Void
+//    typealias anyObject = (_ object: Any?) -> Void
+//}
 
 // NetworkPotocol
-protocol NetworkRequestProtocol {
+protocol NetworkRequestAdafruitProtocol {
     func requestData(endPoint: EndPointType, success: @escaping RequestSuccess, failure: @escaping RequestFailure)
     func uploadImage(endPoint: EndPointType,success: @escaping RequestSuccess, failure: @escaping RequestFailure)
 }
 
 //---
-struct NetworkRequest: NetworkRequestProtocol {
+struct NetworkRequestAdafruit: NetworkRequestAdafruitProtocol {
     static let configuration: URLSessionConfiguration = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 600 // seconds
@@ -54,10 +49,6 @@ struct NetworkRequest: NetworkRequestProtocol {
     }()
     
     let manager: SessionManager = {
-        let pathToCert = Bundle.main.path(forResource: "vinova_sg", ofType: "der")
-        let serverDomain = "dadn-project-123.herokuapp.com"
-        let localCertificate = try! Data(contentsOf: URL(fileURLWithPath: pathToCert!))
-        
         return SessionManager(
             configuration: configuration
         )
@@ -201,7 +192,7 @@ struct NetworkRequest: NetworkRequestProtocol {
 }
 
 // MARK: helper NetworkRequest
-extension NetworkRequest {
+extension NetworkRequestAdafruit {
     private func getAlamofireEncoding(httpMethod: HTTPMethod) -> ParameterEncoding {
         switch httpMethod {
         case .get:
@@ -214,7 +205,7 @@ extension NetworkRequest {
     }
     
     private func makeUrl(path: String) -> String {
-        return "\(BASE_URL)\(path)"
+        return "\(BASE_URL_ADAFRUIT)\(path)"
     }
 }
 
