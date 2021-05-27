@@ -9,23 +9,42 @@
 //
 
 import Foundation
+import PKHUD
 
 // MARK: View -
 protocol RegisterViewProtocol: class {
-
+    func registerSuccess()
+    func registerFailed(error: String)
 }
 
 // MARK: Presenter -
 protocol RegisterPresenterProtocol: class {
 	var view: RegisterViewProtocol? { get set }
-    func viewDidLoad()
+    var user: UserEntity? {get set}
+    func register(name: String, email: String, phone: String, password: String)
 }
 
 class RegisterPresenter: RegisterPresenterProtocol {
+    var user: UserEntity?
+    
 
     weak var view: RegisterViewProtocol?
 
-    func viewDidLoad() {
-
+    func register(name: String, email: String, phone: String, password: String){
+        HUD.show(.progress)
+        Provider.shared.loginAPIService.register(name: name, email: email, phone: phone, password: password, success: { [weak self] (user) in
+            guard let user = user, let strSelf = self else { return }
+            HUD.hide()
+            if user.error == nil {
+                strSelf.user = user
+                strSelf.view?.registerSuccess()
+            } else {
+                strSelf.view?.registerFailed(error: user.error ?? "Something went wrong. Try again")
+            }
+            
+        }) { (error) in
+            HUD.hide()
+            self.view?.registerFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
     }
 }

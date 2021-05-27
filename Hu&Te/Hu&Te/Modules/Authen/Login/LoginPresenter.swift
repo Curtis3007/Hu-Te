@@ -37,7 +37,7 @@ class LoginPresenter: LoginPresenterProtocol {
                 UserDefaultHelper.shared.accessToken = user.token
                 UserDefaultHelper.shared.userId = user.id
                 UserDefaultHelper.shared.userName = user.name
-                UserDefaultHelper.shared.isAdmin = user.isAdmin
+                UserDefaultHelper.shared.isAdmin = user.isAdmin == 1 ? true : false
                 strSelf.view?.loginSuccess()
             } else {
                 strSelf.view?.loginFailed(error: user.error ?? "Something went wrong. Try again")

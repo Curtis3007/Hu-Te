@@ -6,15 +6,14 @@
 //
 
 import Alamofire
-
 enum ProfileEndPoint {
-    
-    
     case getProfile
     case updateProfile(name: String, phone: String)
+    case changePassword(id: String, currentPassword: String, newPassword: String)
 }
 
 extension ProfileEndPoint: EndPointType {
+    
     var path: String {
        switch self {
         
@@ -22,6 +21,8 @@ extension ProfileEndPoint: EndPointType {
             return "/users"
        case .updateProfile:
             return "/users"
+       case .changePassword(id: let id, _, _):
+            return "/profile/password?id=\(id)"
        }
     }
     
@@ -31,6 +32,8 @@ extension ProfileEndPoint: EndPointType {
             return .get
         case .updateProfile:
             return .put
+        case .changePassword:
+            return .post
         }
     }
     
@@ -40,6 +43,8 @@ extension ProfileEndPoint: EndPointType {
             return [:]
         case .updateProfile(name: let name, phone: let phone):
             return ["name" : name , "phone" : phone]
+        case .changePassword(_, currentPassword: let currentPassword, newPassword: let newPassword):
+            return ["curPassword" : currentPassword , "newPassword" : newPassword]
         }
     }
     

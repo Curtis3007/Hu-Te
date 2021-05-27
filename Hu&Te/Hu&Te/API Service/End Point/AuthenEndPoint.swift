@@ -31,8 +31,8 @@ extension LoginEndPoint: EndPointType {
     
     var parameters: JSONDictionary {
         switch self {
-        case .register:
-            return [:]
+        case .register(name: let name, email: let email, phone: let phone, password: let password):
+            return ["name" : name, "email": email, "phone" : phone, "password" : password]
         case .login(let email, let password):
             return ["email" : email , "password" : password]
         }

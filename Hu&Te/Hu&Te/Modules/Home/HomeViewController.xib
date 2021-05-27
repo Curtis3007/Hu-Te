@@ -54,16 +54,16 @@
                                     <rect key="frame" x="37.5" y="104.5" width="300" height="300"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="fEy-Fb-mnd">
-                                            <rect key="frame" x="129.5" y="63" width="41.5" height="174"/>
+                                            <rect key="frame" x="110" y="63" width="80" height="174"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHg-Bf-9AY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="78.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHg-Bf-9AY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="78.5"/>
                                                     <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="48"/>
                                                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-Jk-sp8">
-                                                    <rect key="frame" x="0.0" y="95.5" width="41.5" height="78.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-Jk-sp8">
+                                                    <rect key="frame" x="0.0" y="95.5" width="80" height="78.5"/>
                                                     <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="48"/>
                                                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

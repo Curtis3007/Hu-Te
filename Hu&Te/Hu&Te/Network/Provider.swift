@@ -29,4 +29,7 @@ class Provider {
         return AdafruitAPIService(network: networkManagerAdafruit)
     }
 
+    var profileAPIService: ProfileAPIServiceProtocol {
+        return ProfileAPIService(network: networkManager)
+    }
 }

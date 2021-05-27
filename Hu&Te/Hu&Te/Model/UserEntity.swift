@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 class UserEntity: Mappable {
-    var isAdmin: Bool!
+    var isAdmin: Int?
     var createdAt: String?
     var id: String?
     var name : String?
@@ -24,7 +24,7 @@ class UserEntity: Mappable {
     }
     
     func mapping(map: Map) {
-        self.isAdmin <- map["is_admin"]
+        self.isAdmin <- map["isAdmin"]
         self.createdAt <- map["created_at"]
         self.id <- map["_id"]
         self.name <- map["name"]

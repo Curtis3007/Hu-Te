@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class HomeViewController: UIViewController {
 
@@ -18,6 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lbHumid: UILabel!
     var presenter: HomePresenterProtocol
     var timer = Timer()
+    var isCallTimer = false
 	init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: "HomeViewController", bundle: nil)
@@ -26,10 +28,22 @@ class HomeViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        isCallTimer = true
+        lbUser.text = "Hi, " + (UserDefaultHelper.shared.userName ?? "Username")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        isCallTimer = false
+    }
 
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        HUD.show(.progress)
         presenter.getTemperature()
         presenter.getHumidity()
         navigationController?.navigationBar.isHidden = true
@@ -49,8 +63,10 @@ class HomeViewController: UIViewController {
     }
     
     @objc func fetchData(){
-        presenter.getTemperature()
-        presenter.getHumidity()
+        if isCallTimer {
+            presenter.getTemperature()
+            presenter.getHumidity()
+        }
     }
     
     @IBAction func onTapPofile(_ sender: Any) {
@@ -76,19 +92,23 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewProtocol{
     func getHumidSuccess() {
+        HUD.hide()
         lbHumid.text = (presenter.humid?.value ?? "") + "%"
     }
     
     func getHumidFailed(error: String) {
+        HUD.hide()
         lbHumid.text = "..."
         showAlert("Error", message: error)
     }
     
     func getTempSuccess() {
+        HUD.hide()
         lbTemp.text = (presenter.temperature?.value ?? "") + "°C"
     }
     
     func getTempFailed(error: String) {
+        HUD.hide()
         lbTemp.text = "..."
         showAlert("Error", message: error)
     }

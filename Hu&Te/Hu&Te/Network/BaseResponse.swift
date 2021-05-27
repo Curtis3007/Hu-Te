@@ -15,6 +15,7 @@ class BaseResponse: Mappable {
     var message: String?
     var data: Any?
     var metaData: Any?
+    var error: String?
     
     required init?(map: Map) {
         mapping(map: map)
@@ -26,5 +27,6 @@ class BaseResponse: Mappable {
         data        <- map["data"]
         code        <- map["code"]
         metaData <- map["metadata"]
+        error <- map["error"]
     }
 }

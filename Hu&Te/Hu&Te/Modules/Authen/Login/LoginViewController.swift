@@ -27,12 +27,12 @@ class LoginViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter.view = self
         setupUI()
     }
     
     func setupUI(){
+        hideKeyboardWhenTappedAround()
         navigationController?.isNavigationBarHidden = true
         tfEmail.setupData(title: "EMAIL")
         tfPassword.setupData(title: "PASSWORD")
@@ -40,10 +40,7 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func onTapLogin(_ sender: Any) {
-        print("Email: \(tfEmail.textField.text)")
-        print("Email: \(tfPassword.textField.text)")
         presenter.login(email: tfEmail.textField.text ?? "", password: tfPassword.textField.text ?? "")
-//        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
     }
     
     @IBAction func onTapRegister(_ sender: Any) {
