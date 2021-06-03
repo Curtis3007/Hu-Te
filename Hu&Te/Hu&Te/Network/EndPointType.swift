@@ -35,7 +35,10 @@ struct DefaultHeader {
     }
     
     func addAdafruitHeader() -> [String: String] {
-        let header: [String: String] = ["Content-Type": "application/json"]
+        var header: [String: String] = ["Content-Type": "application/json"]
+        if let key = UserDefaultHelper.shared.adafruitKey {
+            header["X-AIO-Key"] = key
+        }
         return header
     }
     

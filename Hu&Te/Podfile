@@ -12,5 +12,6 @@ target 'Hu&Te' do
   pod 'SwiftyJSON'
   pod "PKHUD"
   pod 'Alamofire', '4.9.1'
+  pod 'Charts'
 
 end

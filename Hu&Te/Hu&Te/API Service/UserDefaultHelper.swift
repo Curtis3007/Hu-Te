@@ -39,6 +39,7 @@ enum UserDefaultKeys: String {
     case seriesKeyword = "seriesKeyword"
     case isAdmin = "isAdmin"
     case userName = "userName"
+    case adafruitKey = "adafruitKey"
 }
 
 enum Role: String {
@@ -48,6 +49,17 @@ enum Role: String {
 
 class UserDefaultHelper {
     static let shared = UserDefaultHelper()
+    
+    var adafruitKey: String? {
+        get {
+            return loadObject(.adafruitKey) as? String
+        }
+        set {
+            let newTitle = newValue
+            self.setObject(newTitle, key: .adafruitKey)
+        }
+    }
+    
     var isAdmin: Bool? {
         get {
             return loadObject(.isAdmin) as? Bool

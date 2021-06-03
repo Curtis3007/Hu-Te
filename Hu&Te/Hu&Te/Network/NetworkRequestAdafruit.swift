@@ -16,7 +16,7 @@ import Alamofire
 //public var BASE_URL_IMAGE = URL(string: "https://makerspace-dev.vinova.sg")!
 ////public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
 //#else
-public var BASE_URL_ADAFRUIT = URL(string: "https://io.adafruit.com/api/v2/nhat_nguyen123/feeds")!
+public var BASE_URL_ADAFRUIT = URL(string: "https://io.adafruit.com/api/v2/CSE_BBC/feeds")!
 ////public var BASE_URL_IMAGE = URL(string: "http://makerspace-123.vinova.sg")!
 ////public var GOOGLE_SERVICE_FILE = "GoogleService-Info"
 ////#endif
