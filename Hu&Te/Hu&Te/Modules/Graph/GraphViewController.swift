@@ -9,12 +9,13 @@
 //
 
 import UIKit
+import Charts
 
-class GraphViewController: UIViewController, GraphViewProtocol {
+class GraphViewController: UIViewController{
 
-    @IBOutlet weak var vNavigation: NavigationView!
     var presenter: GraphPresenterProtocol
-
+    @IBOutlet weak var vChart: LineChartView!
+    
 	init(presenter: GraphPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: "GraphViewController", bundle: nil)
@@ -23,15 +24,61 @@ class GraphViewController: UIViewController, GraphViewProtocol {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return .landscape }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UIView.setAnimationsEnabled(false)
+        UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
+        UIView.setAnimationsEnabled(true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        UIView.setAnimationsEnabled(false)
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        UIView.setAnimationsEnabled(true)
+    }
 
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        presenter.fetchData()
         setupUI()
     }
     
-    func setupUI(){
-        vNavigation.setupNavigation(title: "Graph", rightTitle: nil)
+    override var shouldAutorotate: Bool {
+        return false
     }
+    
+    func setupUI(){
+        //vChart.delegate = self
+    }
+    
+    @IBAction func onTapBack(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
 
+extension GraphViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(entry)
+    }
+}
+
+extension GraphViewController: GraphViewProtocol {
+    func getDataSuccess() {
+        let set = LineChartDataSet(entries: presenter.chartData, label: "Temperature")
+        let data = LineChartData(dataSet: set)
+        data.setDrawValues(true)
+        data.setValueTextColor(.blue)
+        self.vChart.data = LineChartData(dataSet: set)
+        //print("Count: \(presenter.values.count)")
+    }
+    
+    func getDataFailed(error: String) {
+        
+    }
 }

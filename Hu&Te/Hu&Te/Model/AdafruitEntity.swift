@@ -12,13 +12,30 @@ class AdafruitEntity: Mappable {
     var id, value: String?
     var feedID: Int?
     var feedKey: String?
-    var createdAt: Date?
+    var createdAt: String?
     var createdEpoch: Int?
     var expiration: Date?
     
     init() {}
     
     required init?(map: Map) {
+    }
+    
+    var timeInDay: Int {
+        get {
+            if let createdEpoch = createdEpoch {
+                let date = Date()
+                let iso8601DateFormatter = ISO8601DateFormatter()
+                iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+                let now = iso8601DateFormatter.string(from: date)
+                let startTime = String(now.prefix(11)) + "00:00:00Z"
+                let dateTime = startTime.convertToDate()
+                let timeMidNight = Int(dateTime.timeIntervalSince1970)
+                print("TimeToDay: \(timeMidNight)")
+                return (createdEpoch - timeMidNight) / 60
+            }
+            return 0
+        }
     }
     
     var tempAndHumid: TemAndHumidEntity? {
@@ -33,6 +50,33 @@ class AdafruitEntity: Mappable {
             }
             return nil
         }
+    }
+    
+    func getDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let dateStr = createdAt?.components(separatedBy: "T").first, let date = dateFormatter.date(from: dateStr) {
+            return date.toDayStringBlueSky()
+        } else {
+            return ""
+        }
+    }
+    
+    func getTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        if let dateStr = createdAt?.components(separatedBy: "T").last, let _dateTime = dateFormatter.date(from: subString(str: dateStr)){
+            return "\(_dateTime.toTimeString())"
+        } else {
+            return ""
+        }
+    }
+    
+    func subString(str: String) -> String {
+        let startIndex = str.index(str.startIndex, offsetBy: 0)
+        let endIndex = str.index(str.startIndex, offsetBy: 4)
+        let temp = String(str[startIndex...endIndex])
+        return temp
     }
     
     func mapping(map: Map) {

@@ -9,23 +9,56 @@
 //
 
 import Foundation
+import Charts
 
 // MARK: View -
 protocol GraphViewProtocol: class {
-
+    func getDataSuccess()
+    func getDataFailed(error: String)
 }
 
 // MARK: Presenter -
 protocol GraphPresenterProtocol: class {
 	var view: GraphViewProtocol? { get set }
-    func viewDidLoad()
+//    var values: [AdafruitEntity] {get set}
+    var chartData: [ChartDataEntry] {get set}
+    func fetchData()
 }
 
 class GraphPresenter: GraphPresenterProtocol {
-
+    var chartData: [ChartDataEntry] = []
+    var values: [AdafruitEntity] = []
     weak var view: GraphViewProtocol?
-
-    func viewDidLoad() {
-
+    
+    func fetchData(){
+        let date = Date()
+        let iso8601DateFormatter = ISO8601DateFormatter()
+        iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        let endTime = iso8601DateFormatter.string(from: date)
+        let startTime = String(endTime.prefix(11)) + "00:00:00.00Z"
+        getValues(startTime: startTime, endTime: endTime)
+    }
+    
+    func getValues(startTime: String, endTime: String){
+        Provider.shared.adafruitAPIService.getValueFromTo(startTime: startTime, endTime: endTime, success: { [weak self] (values) in
+            guard let strSelf = self else { return }
+            if values.count == 0 {
+                strSelf.view?.getDataFailed(error: "Something went wrong")
+                return
+            }
+            strSelf.values = values
+            strSelf.values.reverse()
+            strSelf.setupChartData()
+            strSelf.view?.getDataSuccess()
+        }) { (error) in
+            self.view?.getDataFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+    }
+    
+    func setupChartData(){
+        for value in values {
+            print("Time: \(value.timeInDay)")
+            chartData.append(ChartDataEntry(x: Double(value.timeInDay), y:  Double(value.tempAndHumid?.temp ?? "") ?? 0))
+        }
     }
 }

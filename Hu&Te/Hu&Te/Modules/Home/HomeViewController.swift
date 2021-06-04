@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var lbUser: UILabel!
     @IBOutlet weak var lbTemp: UILabel!
     @IBOutlet weak var lbHumid: UILabel!
+    @IBOutlet weak var lbCreatedAt: UILabel!
     var presenter: HomePresenterProtocol
     var timer = Timer()
     var isCallTimer = false
@@ -61,15 +62,8 @@ class HomeViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
-    @objc func randomNum(){
-        lbTemp.text = String(Int.random(in: 0...100)) + "°C"
-        lbHumid.text = String(Int.random(in: 0...100)) + "%"
-    }
-    
     @objc func fetchData(){
         if isCallTimer {
-//            presenter.getTemperature()
-//            presenter.getHumidity()
             presenter.getTempAndHumid()
         }
     }
@@ -79,7 +73,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onTapGraph(_ sender: Any) {
-        
+        navigationController?.pushViewController(GraphViewController(presenter: GraphPresenter()), animated: true)
     }
     
     @IBAction func onTapSpeaker(_ sender: Any) {
@@ -100,6 +94,8 @@ extension HomeViewController: HomeViewProtocol{
         HUD.hide()
         lbHumid.text = (presenter.adafruit?.tempAndHumid?.humid ?? "") + "%"
         lbTemp.text = (presenter.adafruit?.tempAndHumid?.temp ?? "") + "°C"
+        let str = "Created at\n" + (presenter.adafruit?.getDateString() ?? "")
+        lbCreatedAt.text = str + " " + (presenter.adafruit?.getTime() ?? "")
     }
     
     func getTempAndHumidFailed(error: String) {

@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Hu_Te" customModuleProvider="target">
             <connections>
+                <outlet property="lbCreatedAt" destination="Lia-9J-FE5" id="vQU-yf-eIc"/>
                 <outlet property="lbHumid" destination="x7Z-Jk-sp8" id="fw0-sG-WRW"/>
                 <outlet property="lbSpeaker" destination="hJa-q2-MYJ" id="ptW-kn-eTY"/>
                 <outlet property="lbTemp" destination="WHg-Bf-9AY" id="kZl-du-pUW"/>
@@ -53,19 +54,27 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4By-dJ-XxX">
                                     <rect key="frame" x="37.5" y="104.5" width="300" height="300"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="fEy-Fb-mnd">
-                                            <rect key="frame" x="110" y="63" width="80" height="174"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fEy-Fb-mnd">
+                                            <rect key="frame" x="100.5" y="42" width="99" height="216.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHg-Bf-9AY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="78.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="78.5"/>
                                                     <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="48"/>
                                                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Z-Jk-sp8">
-                                                    <rect key="frame" x="0.0" y="95.5" width="80" height="78.5"/>
+                                                    <rect key="frame" x="0.0" y="88.5" width="99" height="78.5"/>
                                                     <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="48"/>
                                                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lia-9J-FE5">
+                                                    <rect key="frame" x="0.0" y="177" width="99" height="39.5"/>
+                                                    <string key="text">Created at
+2021-06-20 19:30</string>
+                                                    <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="12"/>
+                                                    <color key="textColor" systemColor="systemGray4Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -412,6 +421,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

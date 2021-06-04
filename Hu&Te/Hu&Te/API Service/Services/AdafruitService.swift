@@ -19,6 +19,8 @@ protocol AdafruitAPIServiceProtocol {
     func getHumidity(success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
     
     func getTemAndHumid(success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
+    
+    func getValueFromTo(startTime: String, endTime: String, success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
 }
 
 class AdafruitAPIService: AdafruitAPIServiceProtocol {
@@ -41,6 +43,11 @@ class AdafruitAPIService: AdafruitAPIServiceProtocol {
     
     func getTemAndHumid(success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure) {
         let endPoint = AdafruitEndPoint.getTemAndHumid
+        network.requestData(endPoint: endPoint, success: MapperData.mapArrayAdafruit(success), failure: failure)
+    }
+    
+    func getValueFromTo(startTime: String, endTime: String, success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure) {
+        let endPoint = AdafruitEndPoint.getValueFromTo(startTime: startTime, endTime: endTime)
         network.requestData(endPoint: endPoint, success: MapperData.mapArrayAdafruit(success), failure: failure)
     }
 }
