@@ -10,25 +10,27 @@ enum ProfileEndPoint {
     case getProfile
     case updateProfile(name: String, phone: String)
     case changePassword(id: String, currentPassword: String, newPassword: String)
+    case getUsers
 }
 
 extension ProfileEndPoint: EndPointType {
     
     var path: String {
        switch self {
-        
        case .getProfile:
             return "/users"
        case .updateProfile:
             return "/users"
        case .changePassword(id: let id, _, _):
             return "/profile/password?id=\(id)"
+       case .getUsers:
+            return "/users"
        }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getProfile:
+        case .getProfile , .getUsers:
             return .get
         case .updateProfile:
             return .put
@@ -39,7 +41,7 @@ extension ProfileEndPoint: EndPointType {
     
     var parameters: JSONDictionary {
         switch self {
-        case .getProfile:
+        case .getProfile, .getUsers:
             return [:]
         case .updateProfile(name: let name, phone: let phone):
             return ["name" : name , "phone" : phone]

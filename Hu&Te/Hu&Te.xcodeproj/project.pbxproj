@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		728DAA1D266A2E9300E9E199 /* GraphDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA1A266A2E9200E9E199 /* GraphDetailPresenter.swift */; };
+		728DAA1E266A2E9300E9E199 /* GraphDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA1B266A2E9200E9E199 /* GraphDetailViewController.swift */; };
+		728DAA1F266A2E9300E9E199 /* GraphDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728DAA1C266A2E9200E9E199 /* GraphDetailViewController.xib */; };
+		728DAA26266B294800E9E199 /* ManagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA23266B294800E9E199 /* ManagePresenter.swift */; };
+		728DAA27266B294800E9E199 /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA24266B294800E9E199 /* ManageViewController.swift */; };
+		728DAA28266B294800E9E199 /* ManageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728DAA25266B294800E9E199 /* ManageViewController.xib */; };
+		728DAA2D266B296500E9E199 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA2B266B296500E9E199 /* UserCell.swift */; };
+		728DAA2E266B296500E9E199 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728DAA2C266B296500E9E199 /* UserCell.xib */; };
+		728DAA33266B35D200E9E199 /* ManageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA32266B35D100E9E199 /* ManageHeader.swift */; };
+		728DAA36266B35E100E9E199 /* ManageHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728DAA35266B35E100E9E199 /* ManageHeader.xib */; };
 		729FBE66265D4FAC00C069AC /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729FBE65265D4FAC00C069AC /* ProfileService.swift */; };
 		729FBE69265D579200C069AC /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729FBE68265D579200C069AC /* BaseEntity.swift */; };
 		72ACFAC52668ACEC00AF4F6F /* KeyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACFAC42668ACEC00AF4F6F /* KeyEntity.swift */; };
@@ -79,6 +89,16 @@
 
 /* Begin PBXFileReference section */
 		3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hu&Te.debug.xcconfig"; path = "Target Support Files/Pods-Hu&Te/Pods-Hu&Te.debug.xcconfig"; sourceTree = "<group>"; };
+		728DAA1A266A2E9200E9E199 /* GraphDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphDetailPresenter.swift; sourceTree = "<group>"; };
+		728DAA1B266A2E9200E9E199 /* GraphDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphDetailViewController.swift; sourceTree = "<group>"; };
+		728DAA1C266A2E9200E9E199 /* GraphDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphDetailViewController.xib; sourceTree = "<group>"; };
+		728DAA23266B294800E9E199 /* ManagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePresenter.swift; sourceTree = "<group>"; };
+		728DAA24266B294800E9E199 /* ManageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
+		728DAA25266B294800E9E199 /* ManageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageViewController.xib; sourceTree = "<group>"; };
+		728DAA2B266B296500E9E199 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		728DAA2C266B296500E9E199 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		728DAA32266B35D100E9E199 /* ManageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageHeader.swift; sourceTree = "<group>"; };
+		728DAA35266B35E100E9E199 /* ManageHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageHeader.xib; sourceTree = "<group>"; };
 		729FBE65265D4FAC00C069AC /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		729FBE68265D579200C069AC /* BaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
 		72ACFAC42668ACEC00AF4F6F /* KeyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEntity.swift; sourceTree = "<group>"; };
@@ -164,9 +184,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		728DAA19266A2E7400E9E199 /* Graph Detail */ = {
+			isa = PBXGroup;
+			children = (
+				728DAA1A266A2E9200E9E199 /* GraphDetailPresenter.swift */,
+				728DAA1B266A2E9200E9E199 /* GraphDetailViewController.swift */,
+				728DAA1C266A2E9200E9E199 /* GraphDetailViewController.xib */,
+			);
+			path = "Graph Detail";
+			sourceTree = "<group>";
+		};
+		728DAA21266B291B00E9E199 /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		728DAA22266B292200E9E199 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				728DAA31266B35B800E9E199 /* Header */,
+				728DAA2A266B295100E9E199 /* Cell */,
+				728DAA23266B294800E9E199 /* ManagePresenter.swift */,
+				728DAA24266B294800E9E199 /* ManageViewController.swift */,
+				728DAA25266B294800E9E199 /* ManageViewController.xib */,
+			);
+			path = Manage;
+			sourceTree = "<group>";
+		};
+		728DAA2A266B295100E9E199 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				728DAA2B266B296500E9E199 /* UserCell.swift */,
+				728DAA2C266B296500E9E199 /* UserCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		728DAA31266B35B800E9E199 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				728DAA32266B35D100E9E199 /* ManageHeader.swift */,
+				728DAA35266B35E100E9E199 /* ManageHeader.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		72D431C926577A7C00AFAB22 /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				728DAA19266A2E7400E9E199 /* Graph Detail */,
 				72D431CA26577A8D00AFAB22 /* GraphPresenter.swift */,
 				72D431CB26577A8D00AFAB22 /* GraphViewController.swift */,
 				72D431CC26577A8D00AFAB22 /* GraphViewController.xib */,
@@ -296,6 +364,8 @@
 		72F5B9D92655F89300144253 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				728DAA22266B292200E9E199 /* Manage */,
+				728DAA21266B291B00E9E199 /* History */,
 				72D431C926577A7C00AFAB22 /* Graph */,
 				72DE88F82657590200AC25B4 /* Settings */,
 				72F5B9F32655F9E100144253 /* Profile */,
@@ -502,10 +572,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F5B9F92655FA0300144253 /* ProfileViewController.xib in Resources */,
+				728DAA36266B35E100E9E199 /* ManageHeader.xib in Resources */,
+				728DAA28266B294800E9E199 /* ManageViewController.xib in Resources */,
 				72F5B9E92655F96F00144253 /* LoginViewController.xib in Resources */,
+				728DAA2E266B296500E9E199 /* UserCell.xib in Resources */,
 				72F5B9D02655F85600144253 /* LaunchScreen.storyboard in Resources */,
 				72DE893D26576CF100AC25B4 /* vinova_sg.der in Resources */,
 				72DE88E82656584800AC25B4 /* ChangePasswordViewController.xib in Resources */,
+				728DAA1F266A2E9300E9E199 /* GraphDetailViewController.xib in Resources */,
 				72F5B9F12655F9CF00144253 /* HomeViewController.xib in Resources */,
 				72F5BA012655FC0F00144253 /* Sarala-Regular.ttf in Resources */,
 				72D431CF26577A8D00AFAB22 /* GraphViewController.xib in Resources */,
@@ -572,6 +646,7 @@
 				72ACFAD526690E7900AF4F6F /* NSDate+extension.swift in Sources */,
 				72DE89342657629C00AC25B4 /* UserEntity.swift in Sources */,
 				72F5BA1C2655FFE100144253 /* NavigationView.swift in Sources */,
+				728DAA27266B294800E9E199 /* ManageViewController.swift in Sources */,
 				72F5B9F72655FA0300144253 /* ProfilePresenter.swift in Sources */,
 				72F5BA142655FD1A00144253 /* BaseViewXib.swift in Sources */,
 				729FBE66265D4FAC00C069AC /* ProfileService.swift in Sources */,
@@ -579,8 +654,10 @@
 				72F5B9E02655F95E00144253 /* RegisterPresenter.swift in Sources */,
 				72DE8906265759E700AC25B4 /* MapperData.swift in Sources */,
 				72F5B9C52655F85300144253 /* ViewController.swift in Sources */,
+				728DAA1D266A2E9300E9E199 /* GraphDetailPresenter.swift in Sources */,
 				72E8899C265B6CF50068964C /* NetworkAdafruit.swift in Sources */,
 				72ACFAC82668BE1200AF4F6F /* String+extension.swift in Sources */,
+				728DAA2D266B296500E9E199 /* UserCell.swift in Sources */,
 				72F5B9E72655F96F00144253 /* LoginPresenter.swift in Sources */,
 				72E88999265B6B3D0068964C /* NetworkRequestAdafruit.swift in Sources */,
 				72DE89372657690400AC25B4 /* Provider.swift in Sources */,
@@ -602,7 +679,9 @@
 				72F5BA102655FCB700144253 /* UIScreen+extension.swift in Sources */,
 				72DE892726575CFC00AC25B4 /* UserDefaultHelper.swift in Sources */,
 				72F5B9F82655FA0300144253 /* ProfileViewController.swift in Sources */,
+				728DAA33266B35D200E9E199 /* ManageHeader.swift in Sources */,
 				72F5B9F02655F9CF00144253 /* HomeViewController.swift in Sources */,
+				728DAA1E266A2E9300E9E199 /* GraphDetailViewController.swift in Sources */,
 				72E889A3265B6EB90068964C /* AdafruitEndPoint.swift in Sources */,
 				72DE893A26576A7500AC25B4 /* UIViewController+extension.swift in Sources */,
 				72F5B9E12655F95E00144253 /* RegisterViewController.swift in Sources */,
@@ -614,6 +693,7 @@
 				72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */,
 				72ACFAC52668ACEC00AF4F6F /* KeyEntity.swift in Sources */,
 				72F5B9CB2655F85300144253 /* Hu_Te.xcdatamodeld in Sources */,
+				728DAA26266B294800E9E199 /* ManagePresenter.swift in Sources */,
 				72DE8903265759D600AC25B4 /* APIError.swift in Sources */,
 				72E889A7265B728B0068964C /* AdafruitEntity.swift in Sources */,
 				72E889C3265BE0EC0068964C /* AppRouter.swift in Sources */,

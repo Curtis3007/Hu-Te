@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController {
         self.present(bottomSheet, animated: true, completion: nil)
     }
     @IBAction func onTapManage(_ sender: Any) {
-        
+        navigationController?.pushViewController(ManageViewController(presenter: ManagePresenter()), animated: true)
     }
     
     @IBAction func onTapLogout(_ sender: Any) {

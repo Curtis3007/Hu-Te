@@ -32,7 +32,7 @@ class AdafruitEntity: Mappable {
                 let dateTime = startTime.convertToDate()
                 let timeMidNight = Int(dateTime.timeIntervalSince1970)
                 print("TimeToDay: \(timeMidNight)")
-                return (createdEpoch - timeMidNight) / 60
+                return createdEpoch - timeMidNight + 7*3600
             }
             return 0
         }
@@ -77,6 +77,13 @@ class AdafruitEntity: Mappable {
         let endIndex = str.index(str.startIndex, offsetBy: 4)
         let temp = String(str[startIndex...endIndex])
         return temp
+    }
+    
+    func changeToSystemTimeZone(_ date: Date, from: TimeZone, to: TimeZone = TimeZone.current) -> Date {
+        let sourceOffset = from.secondsFromGMT(for: date)
+        let destinationOffset = to.secondsFromGMT(for: date)
+        let timeInterval = TimeInterval(destinationOffset - sourceOffset)
+        return Date(timeInterval: timeInterval, since: date)
     }
     
     func mapping(map: Map) {

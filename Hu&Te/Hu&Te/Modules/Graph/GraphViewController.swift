@@ -15,6 +15,47 @@ class GraphViewController: UIViewController{
 
     var presenter: GraphPresenterProtocol
     @IBOutlet weak var vChart: LineChartView!
+    @IBOutlet weak var vBack: UIImageView!
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var vDate: UIView!
+    @IBOutlet weak var lbDate: UILabel!
+    @IBOutlet weak var vChartType: UIImageView!
+    @IBOutlet weak var imgType: UIImageView!
+    @IBOutlet weak var vDetail: UIView!
+    @IBOutlet weak var lbValueDetail: UILabel!
+    @IBOutlet weak var lbTimeDetail: UILabel!
+    var open: Bool = false {
+        didSet{
+            if open {
+                vDate.isHidden = false
+                vBack.isHidden = false
+                btnBack.isHidden = false
+            } else {
+                vDate.isHidden = true
+                vBack.isHidden = true
+                btnBack.isHidden = true
+            }
+        }
+    }
+    
+    var isTemperature: Bool = true {
+        didSet {
+            vChart.clear()
+            vChart.clearValues()
+            //vChart.clearAllViewportJobs()
+            if isTemperature {
+                imgType.image = #imageLiteral(resourceName: "Group 32")
+                presenter.type = .Temperature
+                vChart.leftAxis.valueFormatter = temperatureAxisFormatter()
+                
+            } else {
+                imgType.image = #imageLiteral(resourceName: "Group 33")
+                presenter.type = .Humidity
+                vChart.leftAxis.valueFormatter = humidAxisFormatter()
+            }
+            presenter.setupChartData()
+        }
+    }
     
 	init(presenter: GraphPresenterProtocol) {
         self.presenter = presenter
@@ -53,32 +94,108 @@ class GraphViewController: UIViewController{
     }
     
     func setupUI(){
-        //vChart.delegate = self
+        open = false
+        vChart.rightAxis.enabled = false
+        vChart.xAxis.labelPosition = .bottom
+        vChart.leftAxis.granularity = 1
+        vChart.xAxis.granularity = 60
+        vChart.xAxis.valueFormatter = timeAxisFormatter()
+        vChart.leftAxis.valueFormatter = temperatureAxisFormatter()
+        //vChart.animate(xAxisDuration: 5)
+        vChart.xAxis.labelCount = 10
+        vChart.leftAxis.labelCount = 10
+        vChart.delegate = self
     }
     
     @IBAction func onTapBack(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func onTapDetail(_ sender: Any) {
+        open = !open
+    }
+    
+    @IBAction func onTapRefresh(_ sender: Any) {
+        presenter.fetchData()
+    }
+    
+    @IBAction func onChangeChart(_ sender: Any) {
+        isTemperature = !isTemperature
+    }
 }
 
 extension GraphViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
+        let (h,m,_) = secondsToHoursMinutesSeconds(seconds: Int(entry.x))
+        lbTimeDetail.text = "At " + (h <= 9 ? "0" +  String(h) : String(h)) + ":" + (m <= 9 ? "0" +  String(m) : String(m))
+        lbValueDetail.text = String(Int(entry.y)) + (presenter.type == .Temperature ? "°C" : "%")
+        vDetail.isHidden = false
+        vDetail.alpha = 1
+        UIView.animate(withDuration: 1, delay: 2, options: UIView.AnimationOptions.transitionFlipFromTop, animations: {
+            self.vDetail.alpha = 0
+        }, completion: nil)
     }
 }
 
 extension GraphViewController: GraphViewProtocol {
     func getDataSuccess() {
-        let set = LineChartDataSet(entries: presenter.chartData, label: "Temperature")
+        lbDate.text = getDate()
+        let set = LineChartDataSet(entries: presenter.chartData, label: presenter.type == .Temperature ? "Temperature" : "Humidity")
+        set.drawCirclesEnabled = false
+        
+        set.setColor(presenter.type == .Temperature ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
+        set.lineWidth = 3
+        set.fill = Fill(color: presenter.type == .Temperature ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
+        set.fillAlpha = 0.8
+        set.drawFilledEnabled = true
+        set.highlightColor = presenter.type == .Temperature ? #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1) : #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        set.highlightLineWidth = 1.5
         let data = LineChartData(dataSet: set)
-        data.setDrawValues(true)
-        data.setValueTextColor(.blue)
-        self.vChart.data = LineChartData(dataSet: set)
-        //print("Count: \(presenter.values.count)")
+        self.vChart.data = data
+        data.notifyDataChanged()
+        vChart.notifyDataSetChanged()
+        vChart.isHidden = false
+        vChart.animate(xAxisDuration: 5)
+        vChart.setNeedsDisplay()
     }
     
     func getDataFailed(error: String) {
-        
+        showAlert("Error", message: "Something went wrong!")
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func getDate() -> String{
+        let date = Date()
+        let iso8601DateFormatter = ISO8601DateFormatter()
+        iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        let now = iso8601DateFormatter.string(from: date)
+        return String(now.prefix(10))
+    }
+}
+
+final class timeAxisFormatter: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let (h,m,_) = secondsToHoursMinutesSeconds(seconds: Int(value))
+        return (h <= 9 ? "0" +  String(h) : String(h)) + ":" + (m <= 9 ? "0" +  String(m) : String(m))
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+}
+
+final class temperatureAxisFormatter: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return String(Int(value)) + "°C"
+    }
+}
+
+final class humidAxisFormatter: IAxisValueFormatter {
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return String(Int(value)) + "%"
     }
 }

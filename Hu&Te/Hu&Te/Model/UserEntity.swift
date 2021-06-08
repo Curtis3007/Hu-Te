@@ -35,3 +35,18 @@ class UserEntity: Mappable {
     }
 }
 
+class UserListReturn: Mappable {
+    var users: [UserEntity]?
+    var error: String?
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        self.users <- map["users"]
+        self.error <- map["error"]
+    }
+}
+

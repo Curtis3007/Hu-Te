@@ -50,4 +50,9 @@ class AdafruitAPIService: AdafruitAPIServiceProtocol {
         let endPoint = AdafruitEndPoint.getValueFromTo(startTime: startTime, endTime: endTime)
         network.requestData(endPoint: endPoint, success: MapperData.mapArrayAdafruit(success), failure: failure)
     }
+    
+    func setupSpeaker(data: Int, success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure) {
+        let endPoint = AdafruitEndPoint.setSpeaker(data: data)
+        network.requestData(endPoint: endPoint, success: MapperData.mapArrayAdafruit(success), failure: failure)
+    }
 }

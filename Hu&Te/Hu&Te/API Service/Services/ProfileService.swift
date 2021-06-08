@@ -12,6 +12,8 @@ protocol ProfileAPIServiceProtocol {
     func updateProfile(name: String, phone: String, success: @escaping SuccessHandler<UserEntity>.object, failure: @escaping RequestFailure)
     
     func changePassword(id: String, currentPassword: String, newPassword: String, success: @escaping SuccessHandler<BaseEntity>.object, failure: @escaping RequestFailure)
+    
+    func getUsers(success: @escaping SuccessHandler<UserListReturn>.object, failure: @escaping RequestFailure)
 }
 
 class ProfileAPIService: ProfileAPIServiceProtocol {
@@ -34,6 +36,11 @@ class ProfileAPIService: ProfileAPIServiceProtocol {
     
     func changePassword(id: String, currentPassword: String, newPassword: String, success: @escaping SuccessHandler<BaseEntity>.object, failure: @escaping RequestFailure) {
         let endPoint = ProfileEndPoint.changePassword(id: id, currentPassword: currentPassword, newPassword: newPassword)
+        network.requestData(endPoint: endPoint, success: MapperData.mapObject(success), failure: failure)
+    }
+    
+    func getUsers(success: @escaping SuccessHandler<UserListReturn>.object, failure: @escaping RequestFailure) {
+        let endPoint = ProfileEndPoint.getUsers
         network.requestData(endPoint: endPoint, success: MapperData.mapObject(success), failure: failure)
     }
 }
