@@ -9,15 +9,19 @@
 //
 
 import UIKit
+import PKHUD
+import MaterialComponents.MaterialBottomSheet
 
-class HomeViewController: UIViewController, HomeViewProtocol {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var lbSpeaker: UILabel!
     @IBOutlet weak var lbUser: UILabel!
     @IBOutlet weak var lbTemp: UILabel!
     @IBOutlet weak var lbHumid: UILabel!
+    @IBOutlet weak var lbCreatedAt: UILabel!
     var presenter: HomePresenterProtocol
-
+    var timer = Timer()
+    var isCallTimer = false
 	init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: "HomeViewController", bundle: nil)
@@ -26,15 +30,43 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        isCallTimer = true
+        lbUser.text = "Hi, " + (UserDefaultHelper.shared.userName ?? "Username")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        isCallTimer = false
+    }
 
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        //HUD.show(.progress)
+        presenter.getKey(completionHandler: {key in
+            UserDefaultHelper.shared.adafruitKey = key.keyBBC
+            print("Key: \(key.keyBBC ?? "")")
+            self.presenter.getTempAndHumid()
+            
+        })
+        navigationController?.navigationBar.isHidden = true
         setupUI()
+        print("Token: \(UserDefaultHelper.shared.accessToken ?? "No token") 123")
     }
     
     func setupUI(){
+        lbUser.text = "Hi, " + (UserDefaultHelper.shared.userName ?? "Username")
         lbSpeaker.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+        timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
+    }
+    
+    @objc func fetchData(){
+        if isCallTimer {
+            presenter.getTempAndHumid()
+        }
     }
     
     @IBAction func onTapPofile(_ sender: Any) {
@@ -42,18 +74,66 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     }
     
     @IBAction func onTapGraph(_ sender: Any) {
-        
+        navigationController?.pushViewController(GraphViewController(presenter: GraphPresenter()), animated: true)
     }
     
     @IBAction func onTapSpeaker(_ sender: Any) {
-        
+        let vc = SpeakerViewController(presenter: SpeakerPresenter())
+        let bottomSheet = MDCBottomSheetController(contentViewController: vc)
+        bottomSheet.preferredContentSize = CGSize(width: UIScreen.screenWidth(), height: UIScreen.screenHeight())
+        self.present(bottomSheet, animated: true, completion: nil)
     }
     
     @IBAction func onTapSettings(_ sender: Any) {
-        navigationController?.pushViewController(SettingViewController(presenter: SettingPresenter()), animated: true)
+        navigationController?.pushViewController(SettingsViewController(presenter: SettingsPresenter()), animated: true)
     }
     
     @IBAction func onTapHistory(_ sender: Any) {
-        
+        navigationController?.pushViewController(HistoryViewController(presenter: HistoryPresenter()), animated: true)
     }
+}
+
+extension HomeViewController: HomeViewProtocol{
+    func getTempAndHumidSuccess() {
+        HUD.hide()
+        lbHumid.text = (presenter.adafruit?.tempAndHumid?.humid ?? "") + "%"
+        lbTemp.text = (presenter.adafruit?.tempAndHumid?.temp ?? "") + "°C"
+        let str = "Created at\n" + (presenter.adafruit?.getDateString() ?? "")
+        lbCreatedAt.text = str + " " + (presenter.adafruit?.getTime() ?? "")
+    }
+    
+    func getTempAndHumidFailed(error: String) {
+        HUD.hide()
+        lbHumid.text = "Null"
+        lbTemp.text = "Null"
+        showAlert("Error", message: error)
+    }
+    
+    func getKeyFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
+    func getHumidSuccess() {
+        HUD.hide()
+        lbHumid.text = (presenter.humid?.value ?? "") + "%"
+    }
+    
+    func getHumidFailed(error: String) {
+        HUD.hide()
+        lbHumid.text = "Null"
+        showAlert("Error", message: error)
+    }
+    
+    func getTempSuccess() {
+        HUD.hide()
+        lbTemp.text = (presenter.temperature?.value ?? "") + "°C"
+    }
+    
+    func getTempFailed(error: String) {
+        HUD.hide()
+        lbTemp.text = "Null"
+        showAlert("Error", message: error)
+    }
+    
+    
 }

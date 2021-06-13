@@ -7,5 +7,12 @@ target 'Hu&Te' do
 
   # Pods for Hu&Te
   pod 'MaterialComponents/BottomSheet'
+  pod 'ObjectMapper', '3.5.2'
+  pod 'SDWebImage', '5.6.1'
+  pod 'SwiftyJSON'
+  pod "PKHUD"
+  pod 'Alamofire', '4.9.1'
+  pod 'Charts'
+  pod 'SwiftyGif'
 
 end

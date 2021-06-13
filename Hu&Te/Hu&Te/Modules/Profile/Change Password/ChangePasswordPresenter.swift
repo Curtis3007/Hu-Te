@@ -9,23 +9,42 @@
 //
 
 import Foundation
+import PKHUD
 
 // MARK: View -
 protocol ChangePasswordViewProtocol: class {
-
+    func changePasswordSuccess(message: String)
+    func changePasswordFailed(error: String)
 }
 
 // MARK: Presenter -
 protocol ChangePasswordPresenterProtocol: class {
 	var view: ChangePasswordViewProtocol? { get set }
-    func viewDidLoad()
+    var response: BaseEntity? {get set}
+    func changePassword(currentPassword: String, newPassword: String )
 }
 
 class ChangePasswordPresenter: ChangePasswordPresenterProtocol {
-
+    var response: BaseEntity?
     weak var view: ChangePasswordViewProtocol?
-
-    func viewDidLoad() {
-
+    let id = UserDefaultHelper.shared.userId!
+    
+    
+    func changePassword(currentPassword: String, newPassword: String ){
+        HUD.show(.progress)
+        Provider.shared.profileAPIService.changePassword(id: id, currentPassword: currentPassword, newPassword: newPassword, success: { [weak self] (response) in
+            guard let response = response, let strSelf = self else { return }
+            HUD.hide()
+            if response.error == nil {
+                strSelf.response = response
+                strSelf.view?.changePasswordSuccess(message: response.status ?? "Change password is success!")
+            } else {
+                strSelf.view?.changePasswordFailed(error: response.error ?? "Something went wrong. Try again")
+            }
+            
+        }) { (error) in
+            HUD.hide()
+            self.view?.changePasswordFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
     }
 }

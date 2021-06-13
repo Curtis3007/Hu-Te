@@ -10,12 +10,13 @@
 
 import UIKit
 
-class ChangePasswordViewController: UIViewController, ChangePasswordViewProtocol {
+class ChangePasswordViewController: UIViewController {
 
     var presenter: ChangePasswordPresenterProtocol
     @IBOutlet weak var tfCurentPassword: InputView!
     @IBOutlet weak var tfNewPassword: InputView!
     @IBOutlet weak var tfConfirmPassword: InputView!
+    var onChangePasswordSuccess: ((String)->Void)? = nil
     
     init(presenter: ChangePasswordPresenterProtocol) {
         self.presenter = presenter
@@ -36,6 +37,9 @@ class ChangePasswordViewController: UIViewController, ChangePasswordViewProtocol
         tfCurentPassword.setupData(title: "Current Password")
         tfNewPassword.setupData(title: "New Password")
         tfConfirmPassword.setupData(title: "Confirm Password")
+        tfCurentPassword.textField.isSecureTextEntry = true
+        tfNewPassword.textField.isSecureTextEntry = true
+        tfConfirmPassword.textField.isSecureTextEntry = true
     }
     
     @IBAction func onTapDismiss(_ sender: Any) {
@@ -43,5 +47,26 @@ class ChangePasswordViewController: UIViewController, ChangePasswordViewProtocol
     }
     
     @IBAction func onTapSubmit(_ sender: Any) {
+        if let currentPassword = tfCurentPassword.textField.text, let newPassword = tfNewPassword.textField.text, let confirmPassword = tfConfirmPassword.textField.text {
+            if (newPassword != confirmPassword) {
+                showAlert("Error", message: "Confirm password isn't correct. Please check again!")
+                return
+            }
+            presenter.changePassword(currentPassword: currentPassword, newPassword: newPassword)
+        } else {
+            showAlert("Error", message: "Please fill all fields to continue!")
+        }
+        
+    }
+}
+
+extension ChangePasswordViewController: ChangePasswordViewProtocol {
+    func changePasswordSuccess(message: String) {
+        self.dismiss(animated: true, completion: nil)
+        onChangePasswordSuccess?(message)
+    }
+    
+    func changePasswordFailed(error: String) {
+        showAlert("Error", message: error)
     }
 }

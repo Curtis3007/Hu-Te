@@ -1,4 +1,8 @@
 PODS:
+  - Alamofire (4.9.1)
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/BottomSheet (124.2.0):
     - MaterialComponents/Elevation
@@ -28,17 +32,45 @@ PODS:
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
+  - ObjectMapper (3.5.2)
+  - PKHUD (5.3.0)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
+  - SwiftyGif (5.4.0)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire (= 4.9.1)
+  - Charts
   - MaterialComponents/BottomSheet
+  - ObjectMapper (= 3.5.2)
+  - PKHUD
+  - SDWebImage (= 5.6.1)
+  - SwiftyGif
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Charts
     - MaterialComponents
+    - ObjectMapper
+    - PKHUD
+    - SDWebImage
+    - SwiftyGif
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: aa03f79d6b5a01a4a329cd673dbe2c019776d9c0
+PODFILE CHECKSUM: 8ffa7fb37a859e71190cd33d26ac8496f7debe9f
 
 COCOAPODS: 1.10.1

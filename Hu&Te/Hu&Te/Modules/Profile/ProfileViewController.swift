@@ -11,13 +11,17 @@
 import UIKit
 import MaterialComponents.MaterialBottomSheet
 
-class ProfileViewController: UIViewController, ProfileViewProtocol {
+class ProfileViewController: UIViewController {
 
     @IBOutlet weak var vNavigation: NavigationView!
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPhone: UITextField!
+    @IBOutlet weak var vMangage: UIView!
+    @IBOutlet weak var btnManage: UIButton!
     var presenter: ProfilePresenterProtocol
+    var oldName = ""
+    var oldPhone = ""
 
 	init(presenter: ProfilePresenterProtocol) {
         self.presenter = presenter
@@ -31,32 +35,95 @@ class ProfileViewController: UIViewController, ProfileViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        presenter.getProfile()
         setupUI()
     }
     
     func setupUI(){
-        vNavigation.setupNavigation(title: "Profile", rightTitle: "Manage")
+        hideKeyboardWhenTappedAround()
+        vNavigation.setupNavigation(title: "Profile", rightTitle: "Save")
         vNavigation.onTapRightButton = {
-            
+            self.presenter.updateProfile(name: self.tfName.text ?? "", phone: self.tfPhone.text ?? "")
         }
         vNavigation.onTapBack = {
-            self.navigationController?.popViewController(animated: true)
+            if (self.oldName != self.tfName.text || self.oldPhone != self.tfPhone.text) {
+                let alert = UIAlertController(title: "Warning!!", message: "Profile information is changed.\nDo you want to save?", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: {_ in
+                    self.presenter.updateProfile(name: self.tfName.text ?? "", phone: self.tfPhone.text ?? "")
+                }))
+                alert.addAction(UIAlertAction(title: "No. Don't save", style: UIAlertAction.Style.destructive, handler: {_ in
+                    self.navigationController?.popViewController(animated: true)
+                    return
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        tfEmail.isEnabled = false
+        let isAdmin = UserDefaultHelper.shared.isAdmin ?? false
+        if isAdmin {
+            vMangage.isHidden = false
+            btnManage.isHidden = false
+        } else {
+            vMangage.isHidden = true
+            btnManage.isHidden = true
         }
     }
 
     @IBAction func onTapChangePassword(_ sender: Any) {
-        let bottomSheet = MDCBottomSheetController(contentViewController: ChangePasswordViewController(presenter: ChangePasswordPresenter()))
+        let vc = ChangePasswordViewController(presenter: ChangePasswordPresenter())
+        vc.onChangePasswordSuccess = {message in
+            self.showAlert("Success", message: message)
+        }
+        let bottomSheet = MDCBottomSheetController(contentViewController: vc)
         bottomSheet.preferredContentSize = CGSize(width: UIScreen.screenWidth(), height: UIScreen.screenHeight())
         self.present(bottomSheet, animated: true, completion: nil)
+    }
+    @IBAction func onTapManage(_ sender: Any) {
+        navigationController?.pushViewController(ManageViewController(presenter: ManagePresenter()), animated: true)
     }
     
     @IBAction func onTapLogout(_ sender: Any) {
         let alert = UIAlertController(title: "Logout", message: "Would you like to logout the application?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Logout", style: UIAlertAction.Style.destructive, handler: {_ in
-            self.navigationController?.pushViewController(LoginViewController(presenter: LoginPresenter()), animated: true)
+            UserDefaultHelper.shared.accessToken = nil
+            UserDefaultHelper.shared.userId = nil
+            UserDefaultHelper.shared.userName = nil
+            UserDefaultHelper.shared.isAdmin = nil
+            AppRouter.shared.updateRootView()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
     }
+}
+
+extension ProfileViewController: ProfileViewProtocol {
+    func updateProfileSuccess() {
+        showAlert("Success", message: "Your profile is updated successfully!")
+        oldName = presenter.user?.name ?? ""
+        oldPhone = presenter.user?.phone ?? ""
+        tfName.text = presenter.user?.name
+        tfPhone.text = presenter.user?.phone
+        UserDefaultHelper.shared.userName = presenter.user?.name
+    }
+    
+    func updateProfileFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
+    func getProfileSuccess() {
+        oldName = presenter.user?.name ?? ""
+        oldPhone = presenter.user?.phone ?? ""
+        tfName.text = presenter.user?.name
+        tfEmail.text = presenter.user?.email
+        tfPhone.text = presenter.user?.phone
+    }
+    
+    func getProfileFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
+    
 }

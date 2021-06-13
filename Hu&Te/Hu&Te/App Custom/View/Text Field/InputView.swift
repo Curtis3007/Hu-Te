@@ -8,13 +8,18 @@
 import Foundation
 import UIKit
 
-class InputView: BaseViewXib {
+class InputView: BaseViewXib, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     override func setUpViews() {
-        
+        textField.delegate = self
     }
     
     func setupData(title: String){
         textField.placeholder = title
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+        
     }
 }

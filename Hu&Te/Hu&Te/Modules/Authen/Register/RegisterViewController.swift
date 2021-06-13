@@ -10,9 +10,14 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, RegisterViewProtocol {
+class RegisterViewController: UIViewController {
 
-	var presenter: RegisterPresenterProtocol
+    @IBOutlet weak var tfName: InputView!
+    @IBOutlet weak var tfEmail: InputView!
+    @IBOutlet weak var tfPhone: InputView!
+    @IBOutlet weak var tfPassword: InputView!
+    @IBOutlet weak var tfConfirmPassword: InputView!
+    var presenter: RegisterPresenterProtocol
 
 	init(presenter: RegisterPresenterProtocol) {
         self.presenter = presenter
@@ -27,14 +32,49 @@ class RegisterViewController: UIViewController, RegisterViewProtocol {
         super.viewDidLoad()
 
         presenter.view = self
-        presenter.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI(){
+        hideKeyboardWhenTappedAround()
+        tfName.setupData(title: "Name")
+        tfEmail.setupData(title: "Email")
+        tfPhone.setupData(title: "Phone")
+        tfPassword.setupData(title: "Password")
+        tfConfirmPassword.setupData(title: "Confirm Password")
+        tfPassword.textField.isSecureTextEntry = true
+        tfConfirmPassword.textField.isSecureTextEntry = true
     }
     
     @IBAction func onTapLogin(_ sender: Any) {
-        navigationController?.pushViewController(HomeViewController(presenter: HomePresenter()), animated: true)
+        if (tfName.textField.text == "" || tfPhone.textField.text == "" || tfPassword.textField.text == "" || tfEmail.textField.text == "") {
+            showAlert("Error", message: "Please fill all information!")
+            return
+        }
+        if (tfPassword.textField.text != tfConfirmPassword.textField.text) {
+            showAlert("Error", message: "Confirm password isn't correct!")
+            return
+        }
+        presenter.register(name: tfName.textField.text ?? "", email: tfEmail.textField.text ?? "", phone: tfPhone.textField.text ?? "", password: tfPassword.textField.text ?? "")
     }
     
     @IBAction func onTapBackLogin(_ sender: Any) {
         navigationController?.pushViewController(LoginViewController(presenter: LoginPresenter()), animated: true)
     }
+}
+
+extension RegisterViewController: RegisterViewProtocol {
+    func registerSuccess() {
+        let alert = UIAlertController(title: "Success", message: "Register success! Please login for using app.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Go to Login", style: UIAlertAction.Style.default, handler: {_ in
+            self.navigationController?.pushViewController(LoginViewController(presenter: LoginPresenter()), animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func registerFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
+    
 }

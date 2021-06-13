@@ -14,6 +14,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="Hu_Te" customModuleProvider="target">
             <connections>
+                <outlet property="tfConfirmPassword" destination="N11-Zr-6CY" id="xx8-3t-Xzh"/>
+                <outlet property="tfEmail" destination="6KL-MW-VuV" id="XU1-UF-dBS"/>
+                <outlet property="tfName" destination="jxp-sK-6Ae" id="R4H-yz-IZz"/>
+                <outlet property="tfPassword" destination="jzE-SO-7AN" id="ZRN-lj-Mxd"/>
+                <outlet property="tfPhone" destination="Rb3-8U-wYo" id="yhe-Fe-MH7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="939"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HEx-kD-RtP">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="939"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1136.5"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_water" translatesAutoresizingMaskIntoConstraints="NO" id="Y1w-Tk-jBR">
                                     <rect key="frame" x="0.0" y="0.0" width="125" height="158"/>
@@ -154,6 +159,7 @@
                                 <constraint firstItem="jzE-SO-7AN" firstAttribute="top" secondItem="Rb3-8U-wYo" secondAttribute="bottom" id="XGp-ky-vk7"/>
                                 <constraint firstItem="Y1w-Tk-jBR" firstAttribute="leading" secondItem="HEx-kD-RtP" secondAttribute="leading" id="aoa-xM-0FS"/>
                                 <constraint firstItem="fSf-vB-TxL" firstAttribute="centerX" secondItem="cGy-aK-4JJ" secondAttribute="centerX" id="dMz-6c-eQS"/>
+                                <constraint firstAttribute="bottom" secondItem="Y6Z-3t-BFM" secondAttribute="bottom" constant="320" id="gL2-NE-gRW"/>
                                 <constraint firstAttribute="trailing" secondItem="jzE-SO-7AN" secondAttribute="trailing" constant="37" id="hO6-ye-FR3"/>
                                 <constraint firstItem="w7O-Cs-ZEr" firstAttribute="top" secondItem="cGy-aK-4JJ" secondAttribute="bottom" constant="7" id="hQI-GH-h4M"/>
                                 <constraint firstItem="aWP-Y1-OCT" firstAttribute="centerX" secondItem="HEx-kD-RtP" secondAttribute="centerX" id="hUO-cZ-xv5"/>

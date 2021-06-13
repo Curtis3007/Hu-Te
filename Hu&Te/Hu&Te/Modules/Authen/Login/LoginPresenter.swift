@@ -9,23 +9,44 @@
 //
 
 import Foundation
+import PKHUD
 
 // MARK: View -
 protocol LoginViewProtocol: class {
-
+    func loginSuccess()
+    func loginFailed(error: String)
 }
 
 // MARK: Presenter -
 protocol LoginPresenterProtocol: class {
 	var view: LoginViewProtocol? { get set }
-    func viewDidLoad()
+    func login(email: String, password: String)
 }
 
 class LoginPresenter: LoginPresenterProtocol {
 
     weak var view: LoginViewProtocol?
 
-    func viewDidLoad() {
-
+    func login(email: String, password: String){
+        HUD.show(.progress)
+        Provider.shared.loginAPIService.login(email: email, password: password, success: { [weak self] (user) in
+            HUD.hide()
+            guard let user = user, let strSelf = self else { return }
+            if user.token != nil {
+                UserDefaultHelper.shared.isFirstLogin = true
+                UserDefaultHelper.shared.accessToken = user.token
+                UserDefaultHelper.shared.userId = user.id
+                UserDefaultHelper.shared.userName = user.name
+                UserDefaultHelper.shared.isAdmin = user.isAdmin == 1 ? true : false
+                strSelf.view?.loginSuccess()
+            } else {
+                strSelf.view?.loginFailed(error: user.error ?? "Something went wrong. Try again")
+            }
+            
+        }) { (error) in
+            HUD.hide()
+            UserDefaultHelper.shared.isLoggedIn = false
+            self.view?.loginFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
     }
 }
