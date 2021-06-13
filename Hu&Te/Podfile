@@ -13,5 +13,6 @@ target 'Hu&Te' do
   pod "PKHUD"
   pod 'Alamofire', '4.9.1'
   pod 'Charts'
+  pod 'SwiftyGif'
 
 end

@@ -101,7 +101,6 @@ class GraphViewController: UIViewController{
         vChart.xAxis.granularity = 60
         vChart.xAxis.valueFormatter = timeAxisFormatter()
         vChart.leftAxis.valueFormatter = temperatureAxisFormatter()
-        //vChart.animate(xAxisDuration: 5)
         vChart.xAxis.labelCount = 10
         vChart.leftAxis.labelCount = 10
         vChart.delegate = self

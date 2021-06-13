@@ -10,6 +10,7 @@
 
 import UIKit
 import PKHUD
+import MaterialComponents.MaterialBottomSheet
 
 class HomeViewController: UIViewController {
 
@@ -44,7 +45,7 @@ class HomeViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-        HUD.show(.progress)
+        //HUD.show(.progress)
         presenter.getKey(completionHandler: {key in
             UserDefaultHelper.shared.adafruitKey = key.keyBBC
             print("Key: \(key.keyBBC ?? "")")
@@ -77,7 +78,10 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onTapSpeaker(_ sender: Any) {
-        
+        let vc = SpeakerViewController(presenter: SpeakerPresenter())
+        let bottomSheet = MDCBottomSheetController(contentViewController: vc)
+        bottomSheet.preferredContentSize = CGSize(width: UIScreen.screenWidth(), height: UIScreen.screenHeight())
+        self.present(bottomSheet, animated: true, completion: nil)
     }
     
     @IBAction func onTapSettings(_ sender: Any) {
@@ -85,7 +89,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func onTapHistory(_ sender: Any) {
-        
+        navigationController?.pushViewController(HistoryViewController(presenter: HistoryPresenter()), animated: true)
     }
 }
 

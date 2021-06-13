@@ -85,7 +85,6 @@ class GraphPresenter: GraphPresenterProtocol {
                 chartData.sort(by: { $0.x < $1.x })
             }
         }
-        
         view?.getDataSuccess()
     }
     

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72787C6A266FC5980061D951 /* SpeakerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72787C67266FC5980061D951 /* SpeakerPresenter.swift */; };
+		72787C6B266FC5980061D951 /* SpeakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72787C68266FC5980061D951 /* SpeakerViewController.swift */; };
+		72787C6C266FC5980061D951 /* SpeakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72787C69266FC5980061D951 /* SpeakerViewController.xib */; };
+		72787C7C266FCB1B0061D951 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72787C79266FCB1B0061D951 /* HistoryPresenter.swift */; };
+		72787C7D266FCB1B0061D951 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72787C7A266FCB1B0061D951 /* HistoryViewController.swift */; };
+		72787C7E266FCB1B0061D951 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72787C7B266FCB1B0061D951 /* HistoryViewController.xib */; };
+		72787C81266FDAE40061D951 /* speaker.gif in Resources */ = {isa = PBXBuildFile; fileRef = 72787C80266FDAE40061D951 /* speaker.gif */; };
 		728DAA1D266A2E9300E9E199 /* GraphDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA1A266A2E9200E9E199 /* GraphDetailPresenter.swift */; };
 		728DAA1E266A2E9300E9E199 /* GraphDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728DAA1B266A2E9200E9E199 /* GraphDetailViewController.swift */; };
 		728DAA1F266A2E9300E9E199 /* GraphDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728DAA1C266A2E9200E9E199 /* GraphDetailViewController.xib */; };
@@ -89,6 +96,13 @@
 
 /* Begin PBXFileReference section */
 		3AA0EDCEFC0B87A059A40BB1 /* Pods-Hu&Te.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hu&Te.debug.xcconfig"; path = "Target Support Files/Pods-Hu&Te/Pods-Hu&Te.debug.xcconfig"; sourceTree = "<group>"; };
+		72787C67266FC5980061D951 /* SpeakerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerPresenter.swift; sourceTree = "<group>"; };
+		72787C68266FC5980061D951 /* SpeakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakerViewController.swift; sourceTree = "<group>"; };
+		72787C69266FC5980061D951 /* SpeakerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeakerViewController.xib; sourceTree = "<group>"; };
+		72787C79266FCB1B0061D951 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		72787C7A266FCB1B0061D951 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		72787C7B266FCB1B0061D951 /* HistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		72787C80266FDAE40061D951 /* speaker.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = speaker.gif; sourceTree = "<group>"; };
 		728DAA1A266A2E9200E9E199 /* GraphDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphDetailPresenter.swift; sourceTree = "<group>"; };
 		728DAA1B266A2E9200E9E199 /* GraphDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphDetailViewController.swift; sourceTree = "<group>"; };
 		728DAA1C266A2E9200E9E199 /* GraphDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GraphDetailViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +198,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72787C65266FC56E0061D951 /* Speaker */ = {
+			isa = PBXGroup;
+			children = (
+				72787C67266FC5980061D951 /* SpeakerPresenter.swift */,
+				72787C68266FC5980061D951 /* SpeakerViewController.swift */,
+				72787C69266FC5980061D951 /* SpeakerViewController.xib */,
+			);
+			path = Speaker;
+			sourceTree = "<group>";
+		};
 		728DAA19266A2E7400E9E199 /* Graph Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +221,9 @@
 		728DAA21266B291B00E9E199 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				72787C79266FCB1B0061D951 /* HistoryPresenter.swift */,
+				72787C7A266FCB1B0061D951 /* HistoryViewController.swift */,
+				72787C7B266FCB1B0061D951 /* HistoryViewController.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -342,6 +369,7 @@
 		72F5B9BF2655F85300144253 /* Hu&Te */ = {
 			isa = PBXGroup;
 			children = (
+				72787C80266FDAE40061D951 /* speaker.gif */,
 				72DE893C26576CF100AC25B4 /* vinova_sg.der */,
 				72DE89322657628B00AC25B4 /* Model */,
 				72DE8901265759B600AC25B4 /* Network */,
@@ -364,6 +392,7 @@
 		72F5B9D92655F89300144253 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				72787C65266FC56E0061D951 /* Speaker */,
 				728DAA22266B292200E9E199 /* Manage */,
 				728DAA21266B291B00E9E199 /* History */,
 				72D431C926577A7C00AFAB22 /* Graph */,
@@ -572,8 +601,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F5B9F92655FA0300144253 /* ProfileViewController.xib in Resources */,
+				72787C81266FDAE40061D951 /* speaker.gif in Resources */,
 				728DAA36266B35E100E9E199 /* ManageHeader.xib in Resources */,
 				728DAA28266B294800E9E199 /* ManageViewController.xib in Resources */,
+				72787C7E266FCB1B0061D951 /* HistoryViewController.xib in Resources */,
 				72F5B9E92655F96F00144253 /* LoginViewController.xib in Resources */,
 				728DAA2E266B296500E9E199 /* UserCell.xib in Resources */,
 				72F5B9D02655F85600144253 /* LaunchScreen.storyboard in Resources */,
@@ -585,6 +616,7 @@
 				72D431CF26577A8D00AFAB22 /* GraphViewController.xib in Resources */,
 				72F5BA022655FC0F00144253 /* Sarala-Bold.ttf in Resources */,
 				72DE88FE2657591500AC25B4 /* SettingsViewController.xib in Resources */,
+				72787C6C266FC5980061D951 /* SpeakerViewController.xib in Resources */,
 				72F5B9CD2655F85600144253 /* Assets.xcassets in Resources */,
 				72F5B9E22655F95E00144253 /* RegisterViewController.xib in Resources */,
 				72F5BA202655FFEF00144253 /* NavigationView.xib in Resources */,
@@ -656,6 +688,7 @@
 				72F5B9C52655F85300144253 /* ViewController.swift in Sources */,
 				728DAA1D266A2E9300E9E199 /* GraphDetailPresenter.swift in Sources */,
 				72E8899C265B6CF50068964C /* NetworkAdafruit.swift in Sources */,
+				72787C6B266FC5980061D951 /* SpeakerViewController.swift in Sources */,
 				72ACFAC82668BE1200AF4F6F /* String+extension.swift in Sources */,
 				728DAA2D266B296500E9E199 /* UserCell.swift in Sources */,
 				72F5B9E72655F96F00144253 /* LoginPresenter.swift in Sources */,
@@ -673,6 +706,7 @@
 				72F5BA0A2655FC9600144253 /* UITableView+extension.swift in Sources */,
 				72DE88E72656584800AC25B4 /* ChangePasswordViewController.swift in Sources */,
 				72F5B9C12655F85300144253 /* AppDelegate.swift in Sources */,
+				72787C7D266FCB1B0061D951 /* HistoryViewController.swift in Sources */,
 				72F5B9E82655F96F00144253 /* LoginViewController.swift in Sources */,
 				72DE892D26575E8800AC25B4 /* CheckInNetwork.swift in Sources */,
 				72DE893026575F0400AC25B4 /* NewStept.swift in Sources */,
@@ -681,6 +715,7 @@
 				72F5B9F82655FA0300144253 /* ProfileViewController.swift in Sources */,
 				728DAA33266B35D200E9E199 /* ManageHeader.swift in Sources */,
 				72F5B9F02655F9CF00144253 /* HomeViewController.swift in Sources */,
+				72787C6A266FC5980061D951 /* SpeakerPresenter.swift in Sources */,
 				728DAA1E266A2E9300E9E199 /* GraphDetailViewController.swift in Sources */,
 				72E889A3265B6EB90068964C /* AdafruitEndPoint.swift in Sources */,
 				72DE893A26576A7500AC25B4 /* UIViewController+extension.swift in Sources */,
@@ -692,6 +727,7 @@
 				72F5BA232656000600144253 /* InputView.swift in Sources */,
 				72F5B9C32655F85300144253 /* SceneDelegate.swift in Sources */,
 				72ACFAC52668ACEC00AF4F6F /* KeyEntity.swift in Sources */,
+				72787C7C266FCB1B0061D951 /* HistoryPresenter.swift in Sources */,
 				72F5B9CB2655F85300144253 /* Hu_Te.xcdatamodeld in Sources */,
 				728DAA26266B294800E9E199 /* ManagePresenter.swift in Sources */,
 				72DE8903265759D600AC25B4 /* APIError.swift in Sources */,
