@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-        //HUD.show(.progress)
+        HUD.show(.progress)
         presenter.getKey(completionHandler: {key in
             UserDefaultHelper.shared.adafruitKey = key.keyBBC
             print("Key: \(key.keyBBC ?? "")")
@@ -94,8 +94,32 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewProtocol{
+    func getThresholdSuccess() {
+        UserDefaultHelper.shared.humidMax = Int(presenter.threshold?.humid ?? "100")
+        UserDefaultHelper.shared.tempMax = Int(presenter.threshold?.temp ?? "100")
+        presenter.getTempAndHumid()
+    }
+    
+    func getThresholdFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
     func getTempAndHumidSuccess() {
         HUD.hide()
+        let humid = Int(presenter.adafruit?.tempAndHumid?.humid ?? "") ?? 0
+        let humidMax = UserDefaultHelper.shared.humidMax!
+        if (humid >= humidMax) {
+            lbHumid.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        } else {
+            lbTemp.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+        }
+        let temp = Int(presenter.adafruit?.tempAndHumid?.temp ?? "") ?? 0
+        let tempMax = UserDefaultHelper.shared.tempMax!
+        if (temp >= tempMax) {
+            lbTemp.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        } else {
+            lbTemp.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+        }
         lbHumid.text = (presenter.adafruit?.tempAndHumid?.humid ?? "") + "%"
         lbTemp.text = (presenter.adafruit?.tempAndHumid?.temp ?? "") + "°C"
         let str = "Created at\n" + (presenter.adafruit?.getDateString() ?? "")

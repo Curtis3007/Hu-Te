@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpeakerViewController" customModule="Hu_Te" customModuleProvider="target">
             <connections>
+                <outlet property="lbValue" destination="vNI-92-G8K" id="nX4-CL-ycG"/>
                 <outlet property="vGif" destination="YML-C3-Gt2" id="cht-uS-fHK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -84,7 +85,7 @@
                                 <constraint firstAttribute="height" constant="40" id="yCX-oB-EUT"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="14"/>
-                            <state key="normal" title="-10">
+                            <state key="normal" title="-100">
                                 <color key="titleColor" red="0.094117647060000004" green="0.68627450980000004" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -92,6 +93,9 @@
                                     <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onTapDescrease:" destination="-1" eventType="touchUpInside" id="9sK-u1-oqp"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIg-Fw-gsK">
                             <rect key="frame" x="105" y="0.0" width="95" height="40"/>
@@ -100,7 +104,7 @@
                                 <constraint firstAttribute="height" constant="40" id="VKG-ZV-Ax7"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Sarala-Bold" family="Sarala" pointSize="14"/>
-                            <state key="normal" title="+10">
+                            <state key="normal" title="+100">
                                 <color key="titleColor" red="0.094117647060000004" green="0.68627450980000004" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -108,6 +112,9 @@
                                     <real key="value" value="6"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onTapIncrease:" destination="-1" eventType="touchUpInside" id="bUd-kg-d8r"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

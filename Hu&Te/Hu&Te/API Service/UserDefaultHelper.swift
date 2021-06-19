@@ -40,6 +40,8 @@ enum UserDefaultKeys: String {
     case isAdmin = "isAdmin"
     case userName = "userName"
     case adafruitKey = "adafruitKey"
+    case tempMax = "tempMax"
+    case humidMax = "humidMax"
 }
 
 enum Role: String {
@@ -57,6 +59,26 @@ class UserDefaultHelper {
         set {
             let newTitle = newValue
             self.setObject(newTitle, key: .adafruitKey)
+        }
+    }
+    
+    var humidMax: Int? {
+        get {
+            return loadObject(.humidMax) as? Int ?? 100
+        }
+        set {
+            let newTitle = newValue
+            self.setObject(newTitle, key: .humidMax)
+        }
+    }
+    
+    var tempMax: Int? {
+        get {
+            return loadObject(.tempMax) as? Int ?? 100
+        }
+        set {
+            let newTitle = newValue
+            self.setObject(newTitle, key: .tempMax)
         }
     }
     

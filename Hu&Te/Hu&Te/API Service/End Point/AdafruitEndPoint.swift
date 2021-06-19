@@ -14,6 +14,7 @@ enum AdafruitEndPoint {
     case getHumidity
     case getTemAndHumid
     case getValueFromTo(startTime: String, endTime: String)
+    case getSpeaker
     case setSpeaker(data: Int)
 }
 
@@ -30,12 +31,14 @@ extension AdafruitEndPoint: EndPointType {
             return "/bk-iot-temp-humid/data"
        case .setSpeaker:
             return "/bk-iot-speaker/data"
+       case .getSpeaker:
+            return "/bk-iot-speaker/data?limit=1"
        }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getHumidity, .getTemperature, .getTemAndHumid, .getValueFromTo:
+        case .getHumidity, .getTemperature, .getTemAndHumid, .getValueFromTo, .getSpeaker:
             return .get
         case .setSpeaker:
             return .post
@@ -44,7 +47,7 @@ extension AdafruitEndPoint: EndPointType {
     
     var parameters: JSONDictionary {
         switch self {
-        case .getHumidity, .getTemperature, .getTemAndHumid:
+        case .getHumidity, .getTemperature, .getTemAndHumid, .getSpeaker:
             return [:]
         case .getValueFromTo(startTime: let startTime, endTime: let endTime):
             return ["start_time" : startTime, "end_time" : endTime]

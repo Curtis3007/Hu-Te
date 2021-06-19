@@ -17,6 +17,9 @@ protocol HomeViewProtocol: class {
     func getHumidSuccess()
     func getHumidFailed(error: String)
     
+    func getThresholdSuccess()
+    func getThresholdFailed(error: String)
+    
     func getKeyFailed(error: String)
     
     func getTempAndHumidSuccess()
@@ -29,13 +32,15 @@ protocol HomePresenterProtocol: class {
     var temperature: AdafruitEntity? {get set}
     var humid: AdafruitEntity? {get set}
     var adafruit: AdafruitEntity? {get set}
-    func getTemperature()
-    func getHumidity()
+    var threshold: ThresholdEntity? {get set}
     func getKey(completionHandler: @escaping (KeyEntity) -> Void)
     func getTempAndHumid()
+    func getThreshold()
 }
 
 class HomePresenter: HomePresenterProtocol {
+    var threshold: ThresholdEntity?
+    
     var adafruit: AdafruitEntity?
     var humid: AdafruitEntity?
     var temperature: AdafruitEntity?
@@ -102,6 +107,20 @@ class HomePresenter: HomePresenterProtocol {
             strSelf.view?.getTempAndHumidSuccess()
         }) { (error) in
             self.view?.getTempAndHumidFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+    }
+    
+    func getThreshold(){
+        Provider.shared.profileAPIService.getThreShold(success: { [weak self] (data) in
+            guard let data = data, let strSelf = self else { return }
+            if data.error == nil {
+                strSelf.threshold = data
+                strSelf.view?.getThresholdSuccess()
+            } else {
+                strSelf.view?.getThresholdFailed(error: data.error ?? "Something went wrong. Try again")
+            }
+        }) { (error) in
+            self.view?.getThresholdFailed(error: error?.localizedDescription ?? "Something went wrong")
         }
     }
 }

@@ -15,6 +15,9 @@ import PKHUD
 protocol ManageViewProtocol: class {
     func getUsersSuccess()
     func getUsersFailed(error: String)
+    
+    func deleteUserSuccess()
+    func deleteUserFailed(error: String)
 }
 
 // MARK: Presenter -
@@ -22,6 +25,7 @@ protocol ManagePresenterProtocol: class {
 	var view: ManageViewProtocol? { get set }
     var users: [UserEntity] {get set}
     func getUsers()
+    func deleteUser(id: String)
 }
 
 class ManagePresenter: ManagePresenterProtocol {
@@ -43,6 +47,23 @@ class ManagePresenter: ManagePresenterProtocol {
         }) { (error) in
             HUD.hide()
             self.view?.getUsersFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+    }
+    
+    func deleteUser(id: String){
+        HUD.show(.progress)
+        Provider.shared.profileAPIService.deleteUser(id: id, success: { [weak self] (user) in
+            guard let user = user, let strSelf = self else { return }
+            HUD.hide()
+            if user.error == nil {
+                strSelf.view?.deleteUserSuccess()
+            } else {
+                strSelf.view?.deleteUserFailed(error: user.error ?? "Something went wrong. Try again")
+            }
+            
+        }) { (error) in
+            HUD.hide()
+            self.view?.deleteUserFailed(error: error?.localizedDescription ?? "Something went wrong")
         }
     }
 }

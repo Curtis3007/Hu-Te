@@ -14,6 +14,12 @@ protocol ProfileAPIServiceProtocol {
     func changePassword(id: String, currentPassword: String, newPassword: String, success: @escaping SuccessHandler<BaseEntity>.object, failure: @escaping RequestFailure)
     
     func getUsers(success: @escaping SuccessHandler<UserListReturn>.object, failure: @escaping RequestFailure)
+    
+    func getThreShold(success: @escaping SuccessHandler<ThresholdEntity>.object, failure: @escaping RequestFailure)
+    
+    func setThreShold(temp: String, humid: String, success: @escaping SuccessHandler<ThresholdEntity>.object, failure: @escaping RequestFailure)
+    
+    func deleteUser(id: String, success: @escaping SuccessHandler<UserEntity>.object, failure: @escaping RequestFailure)
 }
 
 class ProfileAPIService: ProfileAPIServiceProtocol {
@@ -43,4 +49,20 @@ class ProfileAPIService: ProfileAPIServiceProtocol {
         let endPoint = ProfileEndPoint.getUsers
         network.requestData(endPoint: endPoint, success: MapperData.mapObject(success), failure: failure)
     }
+    
+    func getThreShold(success: @escaping SuccessHandler<ThresholdEntity>.object, failure: @escaping RequestFailure) {
+        let endPoint = ProfileEndPoint.getThreshold
+        network.requestData(endPoint: endPoint, success: MapperData.mapObject(success), failure: failure)
+    }
+    
+    func setThreShold(temp: String, humid: String, success: @escaping SuccessHandler<ThresholdEntity>.object, failure: @escaping RequestFailure) {
+        let endPoint = ProfileEndPoint.setThreshold(temp: temp, humid: humid)
+        network.requestData(endPoint: endPoint, success: MapperData.mapObject(success), failure: failure)
+    }
+    
+    func deleteUser(id: String, success: @escaping SuccessHandler<UserEntity>.object, failure: @escaping RequestFailure) {
+        let endPoint = ProfileEndPoint.deleteUser(id: id)
+        network.requestData(endPoint: endPoint, success: MapperData.mapObject(success), failure: failure)
+    }
+    
 }

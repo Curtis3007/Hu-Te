@@ -34,9 +34,26 @@ class ManageViewController: UIViewController {
     
     func setupUI(){
         //navigationController?.navigationBar.isHidden = true
+        vNavigation.lbRightTitle.text = ""
+        vNavigation.lbTitle.text = "Admin Only"
+        vNavigation.onTapBack = {
+            self.navigationController?.popViewController(animated: true)
+        }
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerXibFile(UserCell.self)
+    }
+    
+    func showDeletePopup(id: String){
+        let alert = UIAlertController(title: "Are You Sure?", message: "Do you want to delete this user?", preferredStyle: .alert)
+
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {_ in
+            self.presenter.deleteUser(id: id)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
 
 }
@@ -49,6 +66,9 @@ extension ManageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueTableCell(UserCell.self)
         cell.setupData(user: presenter.users[indexPath.row])
+        cell.onTapDelete = {id in
+            self.showDeletePopup(id: id)
+        }
         return cell
     }
     
@@ -69,6 +89,15 @@ extension ManageViewController: UITableViewDelegate {
 }
 
 extension ManageViewController: ManageViewProtocol {
+    func deleteUserSuccess() {
+        presenter.getUsers()
+        showAlert("Success", message: "Delete user successfully!")
+    }
+    
+    func deleteUserFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
     func getUsersSuccess() {
         tableView.reloadData()
     }

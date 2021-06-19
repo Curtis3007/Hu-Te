@@ -21,6 +21,10 @@ protocol AdafruitAPIServiceProtocol {
     func getTemAndHumid(success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
     
     func getValueFromTo(startTime: String, endTime: String, success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
+    
+    func getSpeaker(success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
+    
+    func setupSpeaker(data: Int, success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure)
 }
 
 class AdafruitAPIService: AdafruitAPIServiceProtocol {
@@ -48,6 +52,11 @@ class AdafruitAPIService: AdafruitAPIServiceProtocol {
     
     func getValueFromTo(startTime: String, endTime: String, success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure) {
         let endPoint = AdafruitEndPoint.getValueFromTo(startTime: startTime, endTime: endTime)
+        network.requestData(endPoint: endPoint, success: MapperData.mapArrayAdafruit(success), failure: failure)
+    }
+    
+    func getSpeaker(success: @escaping SuccessHandler<AdafruitEntity>.array, failure: @escaping RequestFailure) {
+        let endPoint = AdafruitEndPoint.getSpeaker
         network.requestData(endPoint: endPoint, success: MapperData.mapArrayAdafruit(success), failure: failure)
     }
     

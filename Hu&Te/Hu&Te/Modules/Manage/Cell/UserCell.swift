@@ -12,7 +12,8 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
-    var onTapDelete: (()->Void)? = nil
+    var onTapDelete: ((String)->Void)? = nil
+    var id: String? = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,10 +24,11 @@ class UserCell: UITableViewCell {
     }
     
     @IBAction func onTapDelete(_ sender: Any) {
-        onTapDelete?()
+        onTapDelete?(id!)
     }
     
     func setupData(user: UserEntity) {
+        id = user.id
         lbName.text = user.name
         lbEmail.text = user.email
         lbPhone.text = user.phone

@@ -10,11 +10,13 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, SettingsViewProtocol {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var vNavigation: NavigationView!
     @IBOutlet weak var imgSpeakerStatus: UIImageView!
     var presenter: SettingsPresenterProtocol
+    @IBOutlet weak var lbTemp: UILabel!
+    @IBOutlet weak var lbHumid: UILabel!
     var speakerStatus: Bool = true {
         didSet {
             if speakerStatus {
@@ -37,17 +39,84 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        presenter.getThreshold()
         setupUI()
     }
     
     func setupUI(){
-        vNavigation.setupNavigation(title: "Settings", rightTitle: "Save")
+        vNavigation.setupNavigation(title: "Settings", rightTitle: "")
         vNavigation.onTapBack = {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    func addTemp(){
+        let alert = UIAlertController(title: "New Temperature", message: "Enter new temperature", preferredStyle: .alert)
+        alert.addTextField()
+
+        let submitAction = UIAlertAction(title: "Update", style: .cancel) { [unowned alert] _ in
+            if let text = alert.textFields![0].text {
+                self.lbTemp.text = text + "°C"
+                self.presenter.temp = text
+                self.presenter.setThreshold()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
+    func addHumid(){
+        let alert = UIAlertController(title: "New Humidity", message: "Enter new humidity", preferredStyle: .alert)
+        alert.addTextField()
+
+        let submitAction = UIAlertAction(title: "Update", style: .cancel) { [unowned alert] _ in
+            if let text = alert.textFields![0].text {
+                self.lbHumid.text = text + "%"
+                self.presenter.humid = text
+                self.presenter.setThreshold()
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(submitAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+
 
     @IBAction func onTapSwitchButton(_ sender: Any) {
         speakerStatus = !speakerStatus
     }
+    @IBAction func onTapTemp(_ sender: Any) {
+        addTemp()
+    }
+    
+    @IBAction func onTapHumid(_ sender: Any) {
+        addHumid()
+    }
+}
+
+extension SettingsViewController: SettingsViewProtocol {
+    func getThresholdSuccess() {
+        self.lbTemp.text = (presenter.threshold?.temp ?? "100") + "°C"
+        self.lbHumid.text = (presenter.threshold?.humid ?? "100") + "%"
+        presenter.temp = presenter.threshold?.temp ?? "100"
+        presenter.humid = presenter.threshold?.humid ?? "100"
+    }
+    
+    func getThresholdFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
+    func setThresholdSuccess() {
+        UserDefaultHelper.shared.humidMax = Int(presenter.humid)
+        UserDefaultHelper.shared.tempMax = Int(presenter.temp)
+    }
+    
+    func setThresholdFailed(error: String) {
+        showAlert("Error", message: error)
+    }
+    
+    
 }

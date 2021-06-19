@@ -12,20 +12,58 @@ import Foundation
 
 // MARK: View -
 protocol SpeakerViewProtocol: class {
-
+    func getValueSuccess()
+    func getValueFailed(error: String)
 }
 
 // MARK: Presenter -
 protocol SpeakerPresenterProtocol: class {
 	var view: SpeakerViewProtocol? { get set }
-    func viewDidLoad()
+    var speakerValue: Int {get set}
+    var adafruit: AdafruitEntity? {get set}
+    func getSpeaker()
+    func setSpeaker()
 }
 
 class SpeakerPresenter: SpeakerPresenterProtocol {
-
+    var adafruit: AdafruitEntity?
+    var speakerValue: Int = 0
     weak var view: SpeakerViewProtocol?
-
-    func viewDidLoad() {
-
+    
+    func getSpeaker(){
+        Provider.shared.adafruitAPIService.getSpeaker(success: { [weak self] (adafruit) in
+            guard let strSelf = self else { return }
+            if adafruit.count == 0 {
+                strSelf.view?.getValueFailed(error: "Something went wrong")
+                return
+            }
+            strSelf.adafruit = adafruit[0]
+            
+            strSelf.speakerValue = Int(strSelf.adafruit?.tempAndHumid?.speaker ?? "") ?? 0
+            strSelf.view?.getValueSuccess()
+        }) { (error) in
+            self.view?.getValueFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+//        let speaker = AdafruitEntity(value: "{\"id\" : \"2\", \"name\" : \"SPEAKER\", \"data\": \"100\", \"unit\" : \"\"}")
+//        adafruit = speaker
+//        speakerValue = Int(adafruit?.tempAndHumid?.speaker ?? "") ?? 0
+//        view?.getValueSuccess()
+    }
+    
+    func setSpeaker(){
+        Provider.shared.adafruitAPIService.setupSpeaker(data: speakerValue, success: { [weak self] (adafruit) in
+            guard let strSelf = self else { return }
+            if adafruit.count == 0 {
+                strSelf.view?.getValueFailed(error: "Something went wrong")
+                return
+            }
+            strSelf.adafruit = adafruit[0]
+            let speaker = AdafruitEntity(value: "{\"id\" : \"2\", \"name\" : \"SPEAKER\", \"data\": \"100\", \"unit\" : \"\"}")
+            strSelf.adafruit = speaker
+            //strSelf.speakerValue = Int(speaker.tempAndHumid?.speaker ?? "") ?? 0
+            strSelf.view?.getValueSuccess()
+        }) { (error) in
+            self.view?.getValueFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
     }
 }

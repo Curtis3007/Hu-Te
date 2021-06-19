@@ -16,7 +16,15 @@ class AdafruitEntity: Mappable {
     var createdEpoch: Int?
     var expiration: Date?
     
-    init() {}
+    init(value: String) {
+        self.id = ""
+        self.value = value
+        self.feedID = 0
+        self.feedKey = ""
+        self.createdAt = ""
+        self.createdEpoch = 0
+        self.expiration = Date()
+    }
     
     required init?(map: Map) {
     }
@@ -117,6 +125,15 @@ class TemAndHumidEntity: Codable {
                 let index = data.firstIndex(of: "-")
                 let temp = String(data.suffix(from: index!))
                 return String(temp.dropFirst())
+            }
+            return nil
+        }
+    }
+    
+    var speaker: String? {
+        get {
+            if let data = data {
+                return String(data)
             }
             return nil
         }

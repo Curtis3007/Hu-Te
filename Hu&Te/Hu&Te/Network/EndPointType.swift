@@ -24,12 +24,6 @@ struct DefaultHeader {
         if let token = UserDefaultHelper.shared.accessToken {
            print("Token", token)
            header["auth-token"] = token
-            
-//        } else {
-//            header["email"] = "admin@gmail.com"
-//            header["password"] = "admin123"
-//            print(header)
-//        }
         }
         return header
     }
@@ -47,11 +41,15 @@ struct DefaultHeader {
         if let token = UserDefaultHelper.shared.accessToken, let id = UserDefaultHelper.shared.userId {
             header["auth-token"] = token
             header["id"] = id
-//        } else {
-//            header["email"] = "admin@gmail.com"
-//            header["password"] = "admin123"
-//            print(header)
-//        }
+        }
+        return header
+    }
+    
+    func deleteHeader(id: String) -> [String: String] {
+        var header: [String: String] = ["Content-Type": "application/json"]
+        if let token = UserDefaultHelper.shared.accessToken {
+            header["auth-token"] = token
+            header["id"] = id
         }
         return header
     }

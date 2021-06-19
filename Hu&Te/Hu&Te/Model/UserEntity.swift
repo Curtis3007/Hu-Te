@@ -35,6 +35,27 @@ class UserEntity: Mappable {
     }
 }
 
+class ThresholdEntity: Mappable {
+    var id: String?
+    var error: String?
+    var temp: String?
+    var humid: String?
+    var speakerFreq: Int?
+    
+    init() {}
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        self.id <- map["_id"]
+        self.temp <- map["temp"]
+        self.humid <- map["humid"]
+        self.speakerFreq <- map["speakerFreq"]
+        self.error <- map["error"]
+    }
+}
+
 class UserListReturn: Mappable {
     var users: [UserEntity]?
     var error: String?

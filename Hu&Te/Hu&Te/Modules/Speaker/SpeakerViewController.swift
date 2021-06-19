@@ -11,11 +11,12 @@
 import UIKit
 import SwiftyGif
 
-class SpeakerViewController: UIViewController, SpeakerViewProtocol {
+class SpeakerViewController: UIViewController {
 
     @IBOutlet weak var vGif: UIImageView!
     var presenter: SpeakerPresenterProtocol
-
+    @IBOutlet weak var lbValue: UILabel!
+    
 	init(presenter: SpeakerPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: "SpeakerViewController", bundle: nil)
@@ -28,6 +29,7 @@ class SpeakerViewController: UIViewController, SpeakerViewProtocol {
 	override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        presenter.getSpeaker()
         do {
             let gif = try UIImage(gifName: "speaker.gif")
             vGif.setGifImage(gif, loopCount: -1)
@@ -38,5 +40,31 @@ class SpeakerViewController: UIViewController, SpeakerViewProtocol {
 
     @IBAction func onTapDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func onTapDescrease(_ sender: Any) {
+        if (presenter.speakerValue - 100 >= 0) {
+            presenter.speakerValue = presenter.speakerValue - 100
+            lbValue.text = "Value: \(presenter.speakerValue)"
+            presenter.setSpeaker()
+        }
+    }
+    
+    @IBAction func onTapIncrease(_ sender: Any) {
+        if (presenter.speakerValue + 100 <= 1023) {
+            presenter.speakerValue = presenter.speakerValue + 100
+            lbValue.text = "Value: \(presenter.speakerValue)"
+            presenter.setSpeaker()
+        }
+    }
+}
+
+
+extension SpeakerViewController: SpeakerViewProtocol {
+    func getValueSuccess() {
+        lbValue.text = "Value: \(presenter.speakerValue)"
+    }
+    
+    func getValueFailed(error: String) {
+        showAlert("Error", message: error)
     }
 }
