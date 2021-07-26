@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
         isCallTimer = true
         lbUser.text = "Hi, " + (UserDefaultHelper.shared.userName ?? "Username")
+        presenter.getThreshold()
+        //presenter.getTempAndHumid()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,12 +49,15 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         presenter.view = self
         HUD.show(.progress)
-        presenter.getKey(completionHandler: {key in
-            UserDefaultHelper.shared.adafruitKey = key.keyBBC
-            print("Key: \(key.keyBBC ?? "")")
-            self.presenter.getTempAndHumid()
-            
-        })
+        presenter.getThreshold()
+        UserDefaultHelper.shared.adafruitKey = "aio_FiVJ792ViObIg0uz8lVnYLH9tMfH"
+        //self.presenter.getTempAndHumid()
+//        presenter.getKey(completionHandler: {key in
+//            UserDefaultHelper.shared.adafruitKey = key.keyBBC
+//            print("Key: \(key.keyBBC ?? "")")
+//            self.presenter.getTempAndHumid()
+//
+//        })
         navigationController?.navigationBar.isHidden = true
         setupUI()
         print("Token: \(UserDefaultHelper.shared.accessToken ?? "No token") 123")

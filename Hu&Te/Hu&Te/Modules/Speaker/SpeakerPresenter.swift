@@ -38,7 +38,6 @@ class SpeakerPresenter: SpeakerPresenterProtocol {
                 return
             }
             strSelf.adafruit = adafruit[0]
-            
             strSelf.speakerValue = Int(strSelf.adafruit?.tempAndHumid?.speaker ?? "") ?? 0
             strSelf.view?.getValueSuccess()
         }) { (error) in
@@ -59,7 +58,7 @@ class SpeakerPresenter: SpeakerPresenterProtocol {
             }
             strSelf.adafruit = adafruit[0]
             let speaker = AdafruitEntity(value: "{\"id\" : \"2\", \"name\" : \"SPEAKER\", \"data\": \"100\", \"unit\" : \"\"}")
-            strSelf.adafruit = speaker
+            //strSelf.adafruit = speaker
             //strSelf.speakerValue = Int(speaker.tempAndHumid?.speaker ?? "") ?? 0
             strSelf.view?.getValueSuccess()
         }) { (error) in

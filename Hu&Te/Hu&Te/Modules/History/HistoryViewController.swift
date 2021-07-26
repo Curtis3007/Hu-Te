@@ -71,7 +71,7 @@ class HistoryViewController: UIViewController, HistoryViewProtocol {
         vChart.xAxis.granularity = 60
         vChart.xAxis.valueFormatter = timeAxisFormatter()
         vChart.leftAxis.valueFormatter = temperatureAxisFormatter()
-        vChart.xAxis.labelCount = 10
+        vChart.xAxis.labelCount = 4
         vChart.leftAxis.labelCount = 10
         vChart.delegate = self
     }
@@ -100,7 +100,7 @@ extension HistoryViewController: ChartViewDelegate {
     }
     
     func getDataSuccess() {
-        lbDate.text = getDate(date: Date())
+        //lbDate.text = getDate(date: Date())
         let set = LineChartDataSet(entries: presenter.chartData, label: presenter.type == .Temperature ? "Temperature" : "Humidity")
         set.drawCirclesEnabled = false
         

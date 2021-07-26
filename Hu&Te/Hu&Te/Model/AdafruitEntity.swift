@@ -112,8 +112,10 @@ class TemAndHumidEntity: Codable {
     var temp: String? {
         get {
             if let data = data {
-                let index = data.firstIndex(of: "-")
-                return String(data.prefix(upTo: index!))
+                if let index = data.firstIndex(of: "-") {
+                    return String(data.prefix(upTo: index))
+                }
+                return "0"
             }
             return nil
         }
@@ -122,9 +124,11 @@ class TemAndHumidEntity: Codable {
     var humid: String? {
         get {
             if let data = data {
-                let index = data.firstIndex(of: "-")
-                let temp = String(data.suffix(from: index!))
-                return String(temp.dropFirst())
+                if let index = data.firstIndex(of: "-") {
+                    let temp = String(data.suffix(from: index))
+                    return String(temp.dropFirst())
+                }
+                return "0"
             }
             return nil
         }

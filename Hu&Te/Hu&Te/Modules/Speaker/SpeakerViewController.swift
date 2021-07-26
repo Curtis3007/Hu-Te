@@ -46,12 +46,20 @@ class SpeakerViewController: UIViewController {
             presenter.speakerValue = presenter.speakerValue - 100
             lbValue.text = "Value: \(presenter.speakerValue)"
             presenter.setSpeaker()
+        } else {
+            presenter.speakerValue = 0
+            lbValue.text = "Value: \(presenter.speakerValue)"
+            presenter.setSpeaker()
         }
     }
     
     @IBAction func onTapIncrease(_ sender: Any) {
         if (presenter.speakerValue + 100 <= 1023) {
             presenter.speakerValue = presenter.speakerValue + 100
+            lbValue.text = "Value: \(presenter.speakerValue)"
+            presenter.setSpeaker()
+        } else {
+            presenter.speakerValue = 1023
             lbValue.text = "Value: \(presenter.speakerValue)"
             presenter.setSpeaker()
         }
