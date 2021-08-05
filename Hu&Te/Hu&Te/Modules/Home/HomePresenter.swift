@@ -36,6 +36,8 @@ protocol HomePresenterProtocol: class {
     func getKey(completionHandler: @escaping (KeyEntity) -> Void)
     func getTempAndHumid()
     func getThreshold()
+    func onSpeaker()
+    func offSpeaker()
 }
 
 class HomePresenter: HomePresenterProtocol {
@@ -121,6 +123,40 @@ class HomePresenter: HomePresenterProtocol {
             }
         }) { (error) in
             self.view?.getThresholdFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+    }
+    
+    func onSpeaker(){
+        Provider.shared.adafruitAPIService.setupSpeaker(data: 1023, success: { [weak self] (adafruit) in
+            guard let strSelf = self else { return }
+//            if adafruit.count == 0 {
+//                strSelf.view?.getValueFailed(error: "Something went wrong")
+//                return
+//            }
+//            strSelf.adafruit = adafruit[0]
+//            let speaker = AdafruitEntity(value: "{\"id\" : \"2\", \"name\" : \"SPEAKER\", \"data\": \"100\", \"unit\" : \"\"}")
+//            //strSelf.adafruit = speaker
+//            //strSelf.speakerValue = Int(speaker.tempAndHumid?.speaker ?? "") ?? 0
+//            strSelf.view?.getValueSuccess()
+        }) { (error) in
+            //self.view?.getValueFailed(error: error?.localizedDescription ?? "Something went wrong")
+        }
+    }
+    
+    func offSpeaker(){
+        Provider.shared.adafruitAPIService.setupSpeaker(data: 0, success: { [weak self] (adafruit) in
+            guard let strSelf = self else { return }
+//            if adafruit.count == 0 {
+//                strSelf.view?.getValueFailed(error: "Something went wrong")
+//                return
+//            }
+//            strSelf.adafruit = adafruit[0]
+//            let speaker = AdafruitEntity(value: "{\"id\" : \"2\", \"name\" : \"SPEAKER\", \"data\": \"100\", \"unit\" : \"\"}")
+//            //strSelf.adafruit = speaker
+//            //strSelf.speakerValue = Int(speaker.tempAndHumid?.speaker ?? "") ?? 0
+//            strSelf.view?.getValueSuccess()
+        }) { (error) in
+            //self.view?.getValueFailed(error: error?.localizedDescription ?? "Something went wrong")
         }
     }
 }

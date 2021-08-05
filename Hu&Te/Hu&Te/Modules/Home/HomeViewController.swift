@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
         presenter.view = self
         HUD.show(.progress)
         presenter.getThreshold()
-        UserDefaultHelper.shared.adafruitKey = "aio_FiVJ792ViObIg0uz8lVnYLH9tMfH"
+        UserDefaultHelper.shared.adafruitKey = ""
         //self.presenter.getTempAndHumid()
 //        presenter.getKey(completionHandler: {key in
 //            UserDefaultHelper.shared.adafruitKey = key.keyBBC
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
     
     @objc func fetchData(){
         if isCallTimer {
-            presenter.getTempAndHumid()
+            presenter.getThreshold()
         }
     }
     
@@ -116,15 +116,19 @@ extension HomeViewController: HomeViewProtocol{
         let humidMax = UserDefaultHelper.shared.humidMax!
         if (humid >= humidMax) {
             lbHumid.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            presenter.onSpeaker()
         } else {
-            lbTemp.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+            lbHumid.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+            presenter.offSpeaker()
         }
         let temp = Int(presenter.adafruit?.tempAndHumid?.temp ?? "") ?? 0
         let tempMax = UserDefaultHelper.shared.tempMax!
         if (temp >= tempMax) {
             lbTemp.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            presenter.onSpeaker()
         } else {
             lbTemp.textColor = #colorLiteral(red: 0.5333333333, green: 0.5333333333, blue: 0.5333333333, alpha: 1)
+            presenter.offSpeaker()
         }
         lbHumid.text = (presenter.adafruit?.tempAndHumid?.humid ?? "") + "%"
         lbTemp.text = (presenter.adafruit?.tempAndHumid?.temp ?? "") + "°C"
